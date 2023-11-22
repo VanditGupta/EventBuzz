@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS EventBuzz;
 USE EventBuzz;
 
--- DROP DATABASE IF NOT EXISTS EventBuzz;
+-- DROP DATABASE EventBuzz;
 
 CREATE TABLE IF NOT EXISTS Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -184,3 +184,4 @@ CREATE TABLE IF NOT EXISTS Events_OrganisedBy_Organisers (
     FOREIGN KEY (organiser_name)
         REFERENCES Organisers (organiser_name)
 );
+
