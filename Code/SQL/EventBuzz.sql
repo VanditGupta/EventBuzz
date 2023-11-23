@@ -13,17 +13,16 @@ CREATE TABLE IF NOT EXISTS Users (
     date_of_birth DATE,
     sex ENUM('male', 'female', 'other'),
     phone_number VARCHAR(20),
-    street_no VARCHAR(255),
+    street_no VARCHAR(10),
     street_name VARCHAR(255),
-    unit_no VARCHAR(255),
+    unit_no VARCHAR(10),
     city VARCHAR(255),
     state VARCHAR(255),
     zip_code VARCHAR(10),
     country VARCHAR(255),
     profile_picture_url TEXT,
     role ENUM('admin', 'user', 'organizer') NOT NULL,
-    status ENUM('active', 'inactive') NOT NULL,
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    status ENUM('active', 'inactive') NOT NULL
 );
 
 -- Event Categories Table
@@ -36,10 +35,10 @@ CREATE TABLE IF NOT EXISTS EventCategories (
 CREATE TABLE IF NOT EXISTS Venues (
     venue_name VARCHAR(255) PRIMARY KEY NOT NULL,
     street_no VARCHAR(10),
-    street_name VARCHAR(100),
+    street_name VARCHAR(255),
     unit_no VARCHAR(10),
-    city VARCHAR(100),
-    state VARCHAR(100),
+    city VARCHAR(255),
+    state VARCHAR(255),
     zip_code VARCHAR(20),
     max_capacity INT,
     contact_email VARCHAR(255),
@@ -65,11 +64,11 @@ CREATE TABLE IF NOT EXISTS Events (
 -- Orders Table
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    user_id INT,
-    total_amount DECIMAL(10 , 2 ),
     order_date DATETIME,
     payment_type ENUM('credit_card', 'debit_card', 'paypal', 'other'),
     payment_status ENUM('paid', 'pending', 'failed'),
+    total_amount DECIMAL(10 , 2 ),
+    user_id INT,
     event_name VARCHAR(255),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id),
@@ -80,25 +79,25 @@ CREATE TABLE IF NOT EXISTS Orders (
 -- Tickets Table
 CREATE TABLE IF NOT EXISTS Tickets (
     ticket_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    ticket_price DECIMAL(10 , 2 ),
+    ticket_price DOUBLE,
     ticket_quantity INT,
     start_sale_date DATETIME,
     end_sale_date DATETIME,
     event_name VARCHAR(255),
+    order_id INT,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name),
     FOREIGN KEY (order_id)
         REFERENCES Orders (order_id)
 );
 
--- Reviews Table
+-- Reviews Table (Weak Entity)
 CREATE TABLE IF NOT EXISTS Reviews (
+    rating TINYINT NOT NULL,
+	comment TEXT,
+    review_date DATETIME,
     user_id INT,
     event_name VARCHAR(255),
-    rating TINYINT NOT NULL,
-    comment TEXT,
-    review_date DATETIME,
     CONSTRAINT reviews_pk PRIMARY KEY (user_id , event_name),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id),
@@ -114,7 +113,7 @@ CREATE TABLE IF NOT EXISTS Sponsors (
     logo_url VARCHAR(255),
     contact_email VARCHAR(255),
     contact_phone VARCHAR(15),
-    total_sponsorship_amount DECIMAL(10 , 2 )
+    total_sponsorship_amount DOUBLE
 );
 
 -- Organisers Table
@@ -126,12 +125,12 @@ CREATE TABLE IF NOT EXISTS Organisers (
     contact_phone VARCHAR(15)
 );
 
--- Notifications Table
+-- Notifications Table (Weak entity)
 CREATE TABLE IF NOT EXISTS Notifications (
     notification_id INT,
-    event_name VARCHAR(255),
     notification_text TEXT,
     notification_date DATETIME,
+    event_name VARCHAR(255),
     CONSTRAINT notifications_pk PRIMARY KEY (notification_id , event_name),
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
@@ -152,19 +151,19 @@ CREATE TABLE IF NOT EXISTS Notifications_SendTo_Users (
 CREATE TABLE IF NOT EXISTS Users_RegisterFor_Events (
     user_id INT,
     event_name VARCHAR(255),
-    registration_date DATETIME,
-    CONSTRAINT events_users_pk PRIMARY KEY (user_id , event_name),
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT users_events_pk PRIMARY KEY (user_id , event_name),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id),
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
-);	
+);
 
 -- Events-Sponsors Table
 CREATE TABLE IF NOT EXISTS Events_FundedBy_Sponsors (
     event_name VARCHAR(255),
     sponsor_name VARCHAR(255),
-    sponsorship_amount DECIMAL(10 , 2 ),
+    sponsorship_amount DOUBLE,
     sponsorship_date DATETIME,
     PRIMARY KEY (event_name , sponsor_name),
     FOREIGN KEY (event_name)
@@ -184,3 +183,4 @@ CREATE TABLE IF NOT EXISTS Events_OrganisedBy_Organisers (
     FOREIGN KEY (organiser_name)
         REFERENCES Organisers (organiser_name)
 );
+
