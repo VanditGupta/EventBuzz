@@ -1,6 +1,10 @@
--- triggers.sql
+-- Triggers.sql creates triggers on the EventBuzz Schema
+
+USE EventBuzz;
+
 
 DELIMITER $$
+
 CREATE TRIGGER after_sponsorship_insert
 AFTER INSERT ON Events_FundedBy_Sponsors
 FOR EACH ROW
@@ -9,6 +13,7 @@ BEGIN
     SET total_sponsorship_amount = total_sponsorship_amount + NEW.sponsorship_amount
     WHERE sponsor_name = NEW.sponsor_name;
 END$$
+
 DELIMITER ;
 
 DELIMITER $$
@@ -23,6 +28,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+
 CREATE TRIGGER after_sponsorship_delete
 AFTER DELETE ON Events_FundedBy_Sponsors
 FOR EACH ROW
@@ -31,6 +37,7 @@ BEGIN
     SET total_sponsorship_amount = total_sponsorship_amount - OLD.sponsorship_amount
     WHERE sponsor_name = OLD.sponsor_name;
 END$$
+
 DELIMITER ;
 
 
@@ -68,4 +75,7 @@ BEGIN
     WHERE order_id = OLD.order_id;
 END$$
 DELIMITER ;
+
+
+
 
