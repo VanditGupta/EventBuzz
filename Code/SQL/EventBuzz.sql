@@ -56,9 +56,11 @@ CREATE TABLE IF NOT EXISTS Events (
     category_name VARCHAR(50),
     venue_name VARCHAR(255),
     FOREIGN KEY (category_name)
-        REFERENCES EventCategories (category_name),
+        REFERENCES EventCategories (category_name)
+        ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (venue_name)
         REFERENCES Venues (venue_name)
+        ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 -- Orders Table
@@ -67,13 +69,15 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_date DATETIME,
     payment_type ENUM('credit_card', 'debit_card', 'paypal', 'other'),
     payment_status ENUM('paid', 'pending', 'failed'),
-    total_amount DECIMAL(10 , 2 ),
+    total_amount DOUBLE DEFAULT 0,
     user_id INT,
     event_name VARCHAR(255),
     FOREIGN KEY (user_id)
-        REFERENCES Users (user_id),
+        REFERENCES Users (user_id)
+        ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 -- Tickets Table
@@ -86,23 +90,27 @@ CREATE TABLE IF NOT EXISTS Tickets (
     event_name VARCHAR(255),
     order_id INT,
     FOREIGN KEY (event_name)
-        REFERENCES Events (event_name),
+        REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (order_id)
         REFERENCES Orders (order_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Reviews Table (Weak Entity)
 CREATE TABLE IF NOT EXISTS Reviews (
     rating TINYINT NOT NULL,
-	comment TEXT,
+    comment TEXT,
     review_date DATETIME,
     user_id INT,
     event_name VARCHAR(255),
     CONSTRAINT reviews_pk PRIMARY KEY (user_id , event_name),
     FOREIGN KEY (user_id)
-        REFERENCES Users (user_id),
+        REFERENCES Users (user_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Sponsors Table
@@ -113,7 +121,7 @@ CREATE TABLE IF NOT EXISTS Sponsors (
     logo_url VARCHAR(255),
     contact_email VARCHAR(255),
     contact_phone VARCHAR(15),
-    total_sponsorship_amount DOUBLE
+    total_sponsorship_amount DOUBLE DEFAULT 0
 );
 
 -- Organisers Table
@@ -134,6 +142,7 @@ CREATE TABLE IF NOT EXISTS Notifications (
     CONSTRAINT notifications_pk PRIMARY KEY (notification_id , event_name),
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Users-Notifications Table
@@ -142,9 +151,11 @@ CREATE TABLE IF NOT EXISTS Notifications_SendTo_Users (
     notification_id INT,
     CONSTRAINT notifications_users_pk PRIMARY KEY (user_id , notification_id),
     FOREIGN KEY (user_id)
-        REFERENCES Users (user_id),
+        REFERENCES Users (user_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (notification_id)
         REFERENCES Notifications (notification_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Users-Events Table
@@ -154,9 +165,11 @@ CREATE TABLE IF NOT EXISTS Users_RegisterFor_Events (
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT users_events_pk PRIMARY KEY (user_id , event_name),
     FOREIGN KEY (user_id)
-        REFERENCES Users (user_id),
+        REFERENCES Users (user_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Events-Sponsors Table
@@ -167,9 +180,11 @@ CREATE TABLE IF NOT EXISTS Events_FundedBy_Sponsors (
     sponsorship_date DATETIME,
     PRIMARY KEY (event_name , sponsor_name),
     FOREIGN KEY (event_name)
-        REFERENCES Events (event_name),
+        REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (sponsor_name)
         REFERENCES Sponsors (sponsor_name)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Events-Organisers Table
@@ -179,8 +194,10 @@ CREATE TABLE IF NOT EXISTS Events_OrganisedBy_Organisers (
     organiser_role VARCHAR(100),
     PRIMARY KEY (event_name , organiser_name),
     FOREIGN KEY (event_name)
-        REFERENCES Events (event_name),
+        REFERENCES Events (event_name)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (organiser_name)
         REFERENCES Organisers (organiser_name)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
