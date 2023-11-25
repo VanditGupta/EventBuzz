@@ -202,4 +202,3 @@ CREATE TABLE IF NOT EXISTS Events_OrganisedBy_Organisers (
         REFERENCES Organisers (organiser_name)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
-
