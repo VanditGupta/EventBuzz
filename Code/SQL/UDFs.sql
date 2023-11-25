@@ -1,7 +1,7 @@
 -- UDFs.sql create the user-defined functions for the EventBuzz Schema
 
 -- Function to calculate the age of a user based on their date of birth.
-CREATE FUNCTION CalculateAge(birthDate DATE) 
+CREATE FUNCTION IF NOT EXISTS CalculateAge(birthDate DATE) 
 RETURNS INT
 DETERMINISTIC
 BEGIN
@@ -17,7 +17,7 @@ END;
 
 -- Function to calculate the duration of an event in hours based on start and end times/dates.
 
-CREATE FUNCTION CalculateDuration(startDateTime DATETIME, endDateTime DATETIME)
+CREATE FUNCTION IF NOT EXISTS CalculateDuration(startDateTime DATETIME, endDateTime DATETIME)
 RETURNS INT
 DETERMINISTIC
 BEGIN
