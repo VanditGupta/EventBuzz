@@ -1,4 +1,4 @@
--- CreateSchema.sql creates the EventBuzz schema
+-- CreateSchema.sql creates the EventBuzz schema with base tables
 
 CREATE DATABASE IF NOT EXISTS EventBuzz;
 USE EventBuzz;

@@ -1,3 +1,5 @@
+-- CreateAuditTables.sql creates the audit tables for the EventBuzzAudit Schema
+
 CREATE DATABASE IF NOT EXISTS EventBuzzAudit;
 USE EventBuzzAudit;
 
@@ -23,7 +25,4 @@ CREATE TABLE IF NOT EXISTS UserLog (
     details TEXT,                   -- Additional details about the action
     FOREIGN KEY (user_id) REFERENCES EventBuzz.Users (user_id) -- Assuming EventBuzz is the main DB and Users is the table
 );
-
-
-
 
