@@ -1,4 +1,4 @@
-CREATE PROCEDURE GenerateEventSummary(eventName VARCHAR(255))
+CREATE PROCEDURE IF NOT EXISTS GenerateEventSummary(eventName VARCHAR(255))
 BEGIN
     SELECT COUNT(*) AS TotalAttendees, SUM(total_amount) AS TotalRevenue
     FROM Orders
