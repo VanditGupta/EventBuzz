@@ -1,5 +1,6 @@
 -- StoredProcedures.sql create stored procedures for the EventBuzz Schema
 
+USE EventBuzz;
 DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS GenerateEventSummary(eventName VARCHAR(255))
 BEGIN
@@ -24,3 +25,10 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+-- Call GenerateEventSummary procedure;
+
+-- CALL GenerateEventSummary('Spring Music Fest');
+
+
+
