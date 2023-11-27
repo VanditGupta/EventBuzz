@@ -1,9 +1,12 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import pymysql as pm
 import json
 from datetime import timedelta
 
 app = Flask(__name__)
+
+CORS(app)
 
 # Custom encoder to handle timedelta objects
 class CustomJSONEncoder(json.JSONEncoder):
