@@ -2,7 +2,9 @@ USE EventBuzz;
 
 -- Insert data into Users table
 INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, phone_number, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
-VALUES ('johndoe', 'johndoe@example.com', 'hashed_password', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active');
+VALUES 
+('johndoe', 'johndoe@example.com', 'hashed_password', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active'),
+('vandit', 'vandit@example.com', 'hashed_pwd', 'Vandit','Gupta', '1999-02-22', 'male', '1234567890', '123', 'Washington St', '3', 'town', 'state', '02210', 'USA', 'url', 'user', 'active');
 
 -- Insert data into EventCategories table
 INSERT INTO EventCategories (category_name, description)
