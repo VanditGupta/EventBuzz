@@ -1,1 +1,6 @@
+# Ignore macOS system files
 .DS_Store
+
+# Ignore node_modules in frontend and backend directories
+EventBuzz/eventbuzz_frontend/node_modules/
+EventBuzz/eventbuzz_backend/node_modules/
