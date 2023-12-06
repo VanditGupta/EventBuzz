@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .side-navbar {
-  width: 200px;
+  width: 260px; /* Adjusted width from 200px to 250px */
   background-color: #333;
   color: white;
   padding: 20px;
@@ -10,13 +10,13 @@
   transition: width 0.3s;
   position: fixed;
   top: 0;
-  left: -200px;
+  left: -260px; /* Adjusted to match the new width */
   height: 100vh;
   z-index: 1;
 }
 
 .side-navbar.open {
-  width: 200px;
+  width: 260px; /* Adjusted width from 200px to 250px */
   left: 0;
 }
 
