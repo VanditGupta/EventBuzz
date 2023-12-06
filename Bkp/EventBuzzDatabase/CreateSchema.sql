@@ -59,10 +59,10 @@ CREATE TABLE IF NOT EXISTS Events (
     venue_name VARCHAR(255),
     FOREIGN KEY (category_name)
         REFERENCES EventCategories (category_name)
-        ON UPDATE CASCADE ON DELETE SET NULL,
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (venue_name)
         REFERENCES Venues (venue_name)
-        ON UPDATE CASCADE ON DELETE SET NULL
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Orders Table
@@ -76,10 +76,10 @@ CREATE TABLE IF NOT EXISTS Orders (
     event_name VARCHAR(255),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id)
-        ON UPDATE CASCADE ON DELETE SET NULL,
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
-        ON UPDATE CASCADE ON DELETE SET NULL
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Tickets Table
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Tickets (
     order_id INT,
     FOREIGN KEY (event_name)
         REFERENCES Events (event_name)
-        ON UPDATE CASCADE ON DELETE SET NULL,
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (order_id)
         REFERENCES Orders (order_id)
         ON UPDATE CASCADE ON DELETE CASCADE
