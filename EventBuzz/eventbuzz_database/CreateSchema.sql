@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS Users (
     state VARCHAR(255),
     zip_code VARCHAR(10),
     country VARCHAR(255),
-    profile_picture_url TEXT,
+    profile_picture_url VARCHAR(255),
     role ENUM('admin', 'user', 'organizer') NOT NULL DEFAULT 'user',
     status ENUM('active', 'inactive') NOT NULL DEFAULT 'active'
 );
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS Users (
 -- Event Categories Table
 CREATE TABLE IF NOT EXISTS EventCategories (
     category_name VARCHAR(50) PRIMARY KEY NOT NULL,
-    description TEXT
+    description VARCHAR(255)
 );
 
 -- Venues Table
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS Venues (
 -- Events Table
 CREATE TABLE IF NOT EXISTS Events (
     event_name VARCHAR(255) PRIMARY KEY NOT NULL,
-    event_description TEXT,
+    event_description VARCHAR(255),
     event_date VARCHAR(255),
     event_time VARCHAR(255),
     event_status ENUM('scheduled', 'cancelled', 'completed') NOT NULL DEFAULT 'scheduled',
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS Tickets (
 -- Reviews Table (Weak Entity)
 CREATE TABLE IF NOT EXISTS Reviews (
     rating TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5) DEFAULT 1,
-    comment TEXT,
+    comment VARCHAR(255),
     review_date VARCHAR(255),
     user_id INT,
     event_name VARCHAR(255),
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS Reviews (
 -- Sponsors Table
 CREATE TABLE IF NOT EXISTS Sponsors (
     sponsor_name VARCHAR(255) PRIMARY KEY NOT NULL,
-    description TEXT,
+    description VARCHAR(255),
     website_url VARCHAR(255),
     logo_url VARCHAR(255),
     contact_email VARCHAR(255),
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS Sponsors (
 -- Organisers Table
 CREATE TABLE IF NOT EXISTS Organisers (
     organiser_name VARCHAR(255) PRIMARY KEY NOT NULL,
-    description TEXT,
+    description VARCHAR(255),
     logo_url VARCHAR(255),
     contact_email VARCHAR(255),
     contact_phone VARCHAR(20)
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS Organisers (
 -- Notifications Table (Weak entity)
 CREATE TABLE IF NOT EXISTS Notifications (
     notification_id INT AUTO_INCREMENT,
-    notification_text TEXT,
+    notification_text VARCHAR(255),
     notification_date VARCHAR(255),
     event_name VARCHAR(255),
     CONSTRAINT notifications_pk PRIMARY KEY (notification_id , event_name),
@@ -153,6 +153,7 @@ CREATE TABLE IF NOT EXISTS Notifications (
 CREATE TABLE IF NOT EXISTS NotificationsSendToUsers (
     user_id INT,
     notification_id INT,
+    priority ENUM('high', 'medium', 'low') NOT NULL DEFAULT 'low',
     CONSTRAINT notifications_users_pk PRIMARY KEY (user_id , notification_id),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id)
