@@ -47,37 +47,6 @@ const getTableDetails = (req, res, tableName) => {
 };
 
 // Function to insert data into any table dynamically
-
-// const requiredUserFields = ['username', 'email', 'password', 'sex', 'role', 'status'];
-
-// const executeInsertQuery = (req, res, tableName, data) => {
-//   // Check for required fields if inserting into Users table
-//   if (tableName === 'Users') {
-//     const missingFields = requiredUserFields.filter(field => !data.hasOwnProperty(field));
-//     if (missingFields.length > 0) {
-//       res.status(400).json({ error: `Missing required fields: ${missingFields.join(', ')}` });
-//       return;
-//     }
-//   }
-
-//   const columns = Object.keys(data).join(", ");
-//   const values = Object.values(data)
-//       .map(value => mysql.escape(value))
-//       .join(", ");
-
-//   const query = `INSERT INTO ${tableName} (${columns}) VALUES (${values})`;
-//   console.log(query);
-//   connection.query(query, (err, result) => {
-//       if (err) {
-//           console.error(`Error executing SQL query for ${tableName}:`, err.message);
-//           res.status(500).json({ error: `Failed to execute SQL query for ${tableName}. ${err.message}` });
-//           return;
-//       }
-//       res.status(200).json({ message: `Row inserted in ${tableName}.`, insertedId: result.insertId });
-//   });
-// };
-
-// Function to insert data into any table dynamically
 const executeInsertQuery = (req, res, tableName, data) => {
   const columns = Object.keys(data).join(", ");
   const values = Object.values(data)
