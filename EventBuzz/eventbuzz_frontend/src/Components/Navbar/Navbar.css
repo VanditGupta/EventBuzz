@@ -7,7 +7,7 @@
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
-  transition: width 0.3s;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
   position: fixed;
   top: 0;
   left: -260px; /* Adjusted to match the new width */
