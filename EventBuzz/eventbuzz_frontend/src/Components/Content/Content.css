@@ -1,0 +1,117 @@
+/* Content.css */
+
+.right-content {
+  flex: 1;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease-in-out;
+  position: relative;
+  background-color: #f8f9fa;
+  border-left: 1px solid #eaecef;
+}
+
+.right-content.collapsed {
+  margin-left: 0;
+}
+
+.right-content h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+td {
+  background-color: #fff;
+}
+
+form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1); 
+  border-radius: 8px;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #343a40; 
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  animation: fadeIn 1s;
+  display: block;
+  position: absolute;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
