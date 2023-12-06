@@ -1,0 +1,1478 @@
+{
+	"info": {
+		"_postman_id": "d904439e-99bc-4d6f-826b-567ca479abb6",
+		"name": "EventBuzz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31411683"
+	},
+	"item": [
+		{
+			"name": "insertUsers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"johndoe\",\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"hashed_password\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"sex\": \"male\",\n    \"phone_number\": \"1234567890\",\n    \"street_no\": \"123\",\n    \"street_name\": \"Main St\",\n    \"unit_no\": \"1\",\n    \"city\": \"Anytown\",\n    \"state\": \"Anystate\",\n    \"zip_code\": \"12345\",\n    \"country\": \"Country\",\n    \"profile_picture_url\": \"url_to_picture\",\n    \"role\": \"user\",\n    \"status\": \"active\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUsers",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"user_id\": 1,\n        \"username\": \"johndoe\",\n        \"email\": \"johndoe@example.com\",\n        \"password\": \"hashed_password\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"date_of_birth\": \"1990-01-01\",\n        \"sex\": \"male\",\n        \"phone_number\": \"1234567890\",\n        \"street_no\": \"123\",\n        \"street_name\": \"Updated Street\",\n        \"unit_no\": \"1\",\n        \"city\": \"Anytown\",\n        \"state\": \"Utah\",\n        \"zip_code\": \"12345\",\n        \"country\": \"Country\",\n        \"profile_picture_url\": \"url_to_picture\",\n        \"role\": \"user\",\n        \"status\": \"active\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateUser/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateUser",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUsers",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteUsers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteUsers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEventCategories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"category_name\": \"Music\",\n        \"description\": \"Music events\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoEventCategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoEventCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEventCategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/getEventCategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getEventCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEventCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"category_name\": \"Music\",\n        \"description\": \"Updated Music Events\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateEventCategory/Music",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateEventCategory",
+						"Music"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEventCategory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteEventCategory/Music",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteEventCategory",
+						"Music"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertVenues",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"venue_name\": \"The Grand Hall\",\n    \"street_no\": \"456\",\n    \"street_name\": \"Broadway\",\n    \"unit_no\": \"101\",\n    \"city\": \"Metropolis\",\n    \"state\": \"State\",\n    \"zip_code\": \"67890\",\n    \"max_capacity\": 500,\n    \"contact_email\": \"contact@grandhall.com\",\n    \"contact_phone\": \"0987654321\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoVenues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoVenues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVenues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getVenues/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getVenues",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateVenues",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"venue_name\": \"The Grand Hall\",\n    \"street_no\": \"456\",\n    \"street_name\": \"Broadway\",\n    \"unit_no\": \"101\",\n    \"city\": \"Updated to Boston\",\n    \"state\": \"State\",\n    \"zip_code\": \"67890\",\n    \"max_capacity\": 500,\n    \"contact_email\": \"contact@grandhall.com\",\n    \"contact_phone\": \"0987654321\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateVenue/The Grand Hall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateVenue",
+						"The Grand Hall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteVenues",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteVenue/The Grand Hall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteVenue",
+						"The Grand Hall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEvents",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_name\": \"Spring Music Fest\",\n    \"event_description\": \"Annual Spring Music Festival\",\n    \"event_date\": \"2023-05-15\",\n    \"event_time\": \"18:00:00\",\n    \"event_status\": \"scheduled\",\n    \"event_image_url\": \"url_to_event_image\",\n    \"category_name\": \"Music\",\n    \"venue_name\": \"The Grand Hall\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoEvents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEvents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getEvents/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getEvents",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEvent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"event_name\": \"Spring Music Fest\",\n        \"event_description\": \"Annual Spring Music Festival\",\n        \"event_date\": \"2023-05-15T04:00:00.000Z\",\n        \"event_time\": \"Wrong Time\",\n        \"event_status\": \"scheduled\",\n        \"event_image_url\": \"Updated URL\",\n        \"category_name\": \"Music\",\n        \"venue_name\": \"The Grand Hall\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateEvent/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateEvent",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEvents",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteEvent/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteEvent",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertOrders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"payment_type\": \"credit_card\",\n    \"payment_status\": \"paid\",\n    \"user_id\": 1,\n    \"event_name\": \"Spring Music Fest\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getOrders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getOrders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"payment_type\": \"credit_card\",\n        \"payment_status\": \"failed\",\n        \"total_amount\": 0,\n        \"user_id\": 1,\n        \"event_name\": \"Spring Music Fest\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateOrder/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateOrder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrders",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteOrder/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteOrder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTickets",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticket_price\": 25.00,\n    \"ticket_quantity\": 2,\n    \"start_sale_date\": \"2023-04-01\",\n    \"end_sale_date\": \"2023-05-01\",\n    \"event_name\": \"Spring Music Fest\",\n    \"order_id\": 2\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoTickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoTickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getTickets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getTickets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n        \"ticket_id\": 1,\n        \"ticket_price\": 200,\n        \"ticket_quantity\": 5,\n        \"start_sale_date\": \"Updated\",\n        \"end_sale_date\": \"Updated\",\n        \"event_name\": \"Spring Music Fest\",\n        \"order_id\": 2\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateTicket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateTicket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteTicket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteTicket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertReviews",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 5,\n    \"comment\": \"Great event!\",\n    \"review_date\": \"2023-04-01 00:00:00\",\n    \"user_id\": 1,\n    \"event_name\": \"Spring Music Fest\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoReviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoReviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getReviews/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getReviews",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateReview",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"rating\": 5,\n        \"comment\": \"Updated Comment\",\n        \"review_date\": \"2023-04-01 00:00:12\",\n        \"user_id\": 1,\n        \"event_name\": \"Spring Music Fest\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateReview/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateReview",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteReview",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteReview/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteReview",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertSponsors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sponsor_name\": \"Sponsor Inc\",\n    \"description\": \"Leading Event Sponsor\",\n    \"website_url\": \"https://sponsorinc.com\",\n    \"logo_url\": \"url_to_logo\",\n    \"contact_email\": \"info@sponsorinc.com\",\n    \"contact_phone\": \"1231231234\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoSponsors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoSponsors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSponsors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getSponsors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getSponsors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSponsor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"sponsor_name\": \"Sponsor Inc\",\n        \"description\": \"Updated description\",\n        \"website_url\": \"https://sponsorinc.com\",\n        \"logo_url\": \"url_to_logo\",\n        \"contact_email\": \"info@sponsorinc.com\",\n        \"contact_phone\": \"1231231234\",\n        \"total_sponsorship_amount\": 0\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateSponsor/Sponsor Inc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateSponsor",
+						"Sponsor Inc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSponsor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteSponsor/Sponsor Inc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteSponsor",
+						"Sponsor Inc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertOrganisers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"organiser_name\": \"Organiser Pro\",\n    \"description\": \"Top Event Organiser\",\n    \"logo_url\": \"url_to_organiser_logo\",\n    \"contact_email\": \"contact@organiserpro.com\",\n    \"contact_phone\": \"3213214321\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertintoOrganisers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertintoOrganisers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrganisers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getOrganisers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getOrganisers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrganiser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteOrganiser/Organiser Pro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteOrganiser",
+						"Organiser Pro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertNotifications",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"notification_text\": \"New event Spring Music Fest is available!\",\n    \"notification_date\": \"2023-04-01 00:00:00\",\n    \"event_name\": \"Spring Music Fest\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertintoNotifications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertintoNotifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNotifications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getNotifications/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getNotifications",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateNotification",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"notification_id\": 1,\n        \"notification_text\": \"Updated Notification\",\n        \"notification_date\": \"2023-04-01 04:00:00.000\",\n        \"event_name\": \"Spring Music Fest\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateNotification/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateNotification",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteNotification",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteNotification/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteNotification",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertNotificationsUsers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"notification_id\": 2\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoNotifications_SendTo_Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoNotifications_SendTo_Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNotificationsUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getNotifications_SendTo_Users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getNotifications_SendTo_Users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateNotificationUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"user_id\": 1,\n        \"notification_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateNotification_SendTo_User/2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateNotification_SendTo_User",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteNotificationUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteNotification_SendTo_User/2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteNotification_SendTo_User",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertUsersEvents",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"event_name\": \"Spring Music Fest\",\n    \"registration_date\": \"2023-04-01 00:00:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoUsers_RegisterFor_Events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoUsers_RegisterFor_Events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsersEvents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getUsers_RegisterFor_Events/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getUsers_RegisterFor_Events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserEvent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"user_id\": 1,\n        \"event_name\": \"Spring Music Fest\",\n        \"registration_date\": \"2023-04-01 10:00:00.040\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateUser_RegisterFor_Event/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateUser_RegisterFor_Event",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserEvent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteUser_RegisterFor_Event/1/Spring Music Fest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteUser_RegisterFor_Event",
+						"1",
+						"Spring Music Fest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEventsSponsors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_name\": \"Spring Music Fest\",\n    \"sponsor_name\": \"Sponsor Inc\",\n    \"sponsorship_amount\": 5000.00,\n    \"sponsorship_date\": \"2023-04-01 00:00:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoEvents_FundedBy_Sponsors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoEvents_FundedBy_Sponsors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEventsSponsors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getEvents_FundedBy_Sponsors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getEvents_FundedBy_Sponsors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEventSponsor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_name\": \"Spring Music Fest\",\n    \"sponsor_name\": \"Sponsor Inc\",\n    \"sponsorship_amount\": 10000.00,\n    \"sponsorship_date\": \"2023-04-01 00:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateEvent_FundedBy_Sponsor/Spring Music Fest/Sponsor Inc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateEvent_FundedBy_Sponsor",
+						"Spring Music Fest",
+						"Sponsor Inc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEventSponsor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteEvent_FundedBy_Sponsor/Spring Music Fest/Sponsor Inc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteEvent_FundedBy_Sponsor",
+						"Spring Music Fest",
+						"Sponsor Inc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEventsOrganisers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_name\": \"Spring Music Fest\",\n    \"organiser_name\": \"Organiser Pro\",\n    \"organiser_role\": \"Main Organiser\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/insertIntoEvents_OrganisedBy_Organisers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"insertIntoEvents_OrganisedBy_Organisers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEventsOrganisers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/getEvents_OrganisedBy_Organisers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"getEvents_OrganisedBy_Organisers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEventOrganiser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"event_name\": \"Spring Music Fest\",\n        \"organiser_name\": \"Organiser Pro\",\n        \"organiser_role\": \"Sub Organiser\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/updateEvent_OrganisedBy_Organiser/Spring Music Fest/Organiser Pro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"updateEvent_OrganisedBy_Organiser",
+						"Spring Music Fest",
+						"Organiser Pro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEventOrganiser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/deleteEvent_OrganisedBy_Organiser/Spring Music Fest/Organiser Pro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"deleteEvent_OrganisedBy_Organiser",
+						"Spring Music Fest",
+						"Organiser Pro"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
