@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .side-navbar {
-  width: 260px; /* Adjusted width from 200px to 250px */
+  width: 260px; /* Adjusted width */
   background-color: #333;
   color: white;
   padding: 20px;
@@ -13,10 +13,11 @@
   left: -260px; /* Adjusted to match the new width */
   height: 100vh;
   z-index: 1;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
 }
 
 .side-navbar.open {
-  width: 260px; /* Adjusted width from 200px to 250px */
   left: 0;
 }
 
@@ -31,11 +32,12 @@
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s; /* Added transform transition */
 }
 
 .side-navbar li:hover {
   background-color: #555;
+  transform: translateX(10px); /* Slight movement on hover */
 }
 
 .side-navbar li.active {
@@ -53,8 +55,32 @@
   border: none;
   z-index: 2;
   transition: transform 0.3s;
+  border-radius: 50%; /* Circular shape */
+  width: 40px; /* Fixed width and height */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-toggle.open {
   transform: rotate(90deg);
+}
+
+/* Additional styling for modern look */
+.side-navbar h1, .side-navbar h2, .side-navbar h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
+}
+
+/* Styling for links or additional elements */
+.side-navbar a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.side-navbar a:hover {
+  color: #007bff; /* Highlight color */
 }
