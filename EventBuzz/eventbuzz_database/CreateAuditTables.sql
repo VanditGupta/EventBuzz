@@ -23,6 +23,6 @@ CREATE TABLE IF NOT EXISTS UserLog (
     action_type VARCHAR(255),       -- Type of action (e.g., 'login', 'logout', 'registration')
     action_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, -- When the action occurred
     details TEXT,                   -- Additional details about the action
-    FOREIGN KEY (user_id) REFERENCES EventBuzz.Users (user_id) -- Assuming EventBuzz is the main DB and Users is the table
+    FOREIGN KEY (user_id) REFERENCES EventBuzz.Users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 

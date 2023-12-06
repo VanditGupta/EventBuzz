@@ -8,9 +8,9 @@ VALUES
 
 
 
-INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, phone_number, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
-VALUES 
-('test', 'johndoe@sasadas.com', 'dssa', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active');
+-- INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, phone_number, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
+-- VALUES 
+-- ('test', 'johndoe@sasadas.com', 'dssa', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active');
 
 -- delete from users where username = 'test';
 

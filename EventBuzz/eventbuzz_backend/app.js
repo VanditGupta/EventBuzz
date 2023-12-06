@@ -421,55 +421,55 @@ app.delete("/deleteUsers/:user_id", (req, res) => {
 });
 
 // Route for deleting from EventCategories table
-app.delete("/deleteEventCategory/:category_name", (req, res) => {
+app.delete("/deleteEventCategories/:category_name", (req, res) => {
   const primaryKey = "category_name";
   executeDeleteQuery(req, res, "EventCategories", primaryKey);
 });
 
 // Route for deleting from Venues table
-app.delete("/deleteVenue/:venue_name", (req, res) => {
+app.delete("/deleteVenues/:venue_name", (req, res) => {
   const primaryKey = "venue_name";
   executeDeleteQuery(req, res, "Venues", primaryKey);
 });
 
 // Route for deleting from Events table
-app.delete("/deleteEvent/:event_name", (req, res) => {
+app.delete("/deleteEvents/:event_name", (req, res) => {
   const primaryKey = "event_name";
   executeDeleteQuery(req, res, "Events", primaryKey);
 });
 
 // Route for deleting from Orders table
-app.delete("/deleteOrder/:order_id", (req, res) => {
+app.delete("/deleteOrders/:order_id", (req, res) => {
   const primaryKey = "order_id";
   executeDeleteQuery(req, res, "Orders", primaryKey);
 });
 
 // Route for deleting from Tickets table
-app.delete("/deleteTicket/:ticket_id", (req, res) => {
+app.delete("/deleteTickets/:ticket_id", (req, res) => {
   const primaryKey = "ticket_id";
   executeDeleteQuery(req, res, "Tickets", primaryKey);
 });
 
 // Route for deleting from Reviews table with composite primary key
-app.delete("/deleteReview/:user_id/:event_name", (req, res) => {
+app.delete("/deleteReviews/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   executeDeleteQuery(req, res, "Reviews", primaryKey);
 });
 
 // Route for deleting from Sponsors table
-app.delete("/deleteSponsor/:sponsor_name", (req, res) => {
+app.delete("/deleteSponsors/:sponsor_name", (req, res) => {
   const primaryKey = "sponsor_name";
   executeDeleteQuery(req, res, "Sponsors", primaryKey);
 });
 
 // Route for deleting from Organisers table
-app.delete("/deleteOrganiser/:organiser_name", (req, res) => {
+app.delete("/deleteOrganisers/:organiser_name", (req, res) => {
   const primaryKey = "organiser_name";
   executeDeleteQuery(req, res, "Organisers", primaryKey);
 });
 
 // Route for deleting from Notifications table with composite primary keys
-app.delete("/deleteNotification/:notification_id/:event_name", (req, res) => {
+app.delete("/deleteNotifications/:notification_id/:event_name", (req, res) => {
   const primaryKey = ["notification_id", "event_name"];
   executeDeleteQuery(req, res, "Notifications", primaryKey);
 });

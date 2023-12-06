@@ -16,7 +16,7 @@ const DeleteForm = ({ tableData, onDelete, activeTable }) => {
       Sponsors: ["sponsor_name"],
       Organisers: ["organiser_name"],
       Notifications: ["notification_id", "event_name"],
-      NotificationsSendToUsers: ["user_id", "notification_id"],
+      NotificationsSendToUsers: ["notification_id","user_id"],
       UsersRegisterForEvents: ["user_id","event_name"],
       EventsFundedBySponsors: ["event_name", "sponsor_name"],
       EventsOrganisedByOrganisers: ["event_name","organiser_name"]

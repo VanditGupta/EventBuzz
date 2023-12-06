@@ -166,8 +166,8 @@ const Content = ({ activeTable }) => {
   const determinePrimaryKeys = (tableName, formData) => {
     // Map table names to their respective primary key field(s)
     const primaryKeysMap = {
-      Users: ["user_id"],
-      EventCategories: ["category_name"],
+      Users: [":user_id"],
+      EventCategories: [":category_name"],
       Venues: ["venue_name"],
       Events: ["event_name"],
       Orders: ["order_id"],
@@ -176,7 +176,7 @@ const Content = ({ activeTable }) => {
       Sponsors: ["sponsor_name"],
       Organisers: ["organiser_name"],
       Notifications: ["notification_id", "event_name"],
-      NotificationsSendToUsers: ["user_id", "notification_id"],
+      NotificationsSendToUsers: ["notification_id","user_id"],
       UsersRegisterForEvents: ["user_id","event_name"],
       EventsFundedBySponsors: ["event_name", "sponsor_name"],
       EventsOrganisedByOrganisers: ["event_name","organiser_name"]
