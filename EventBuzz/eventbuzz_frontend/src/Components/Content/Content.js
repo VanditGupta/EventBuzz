@@ -124,28 +124,32 @@ const Content = ({ activeTable }) => {
 
   const handleUpdateData = async (formData) => {
     try {
-      const primaryKeys = determinePrimaryKeys(activeTable);
-      const primaryKeyValues = primaryKeys.map((key) => formData[key]);
-      const primaryKey = primaryKeyValues.join("/");
-
-      const response = await fetch(
-        `http://localhost:4000/update${activeTable}/${primaryKey}`,
-          // .replace("_", "")
-          // .replace("_", "")}/${primaryKey}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+      // Construct the API endpoint based on the active table and primary key(s)
+      let endpoint = `http://localhost:4000/update${activeTable}/`;
+  
+      // Determine primary keys for the active table
+      const primaryKeyArray = determinePrimaryKeys(activeTable);
+  
+      // Append primary key values to the endpoint
+      primaryKeyArray.forEach((key, index) => {
+        endpoint += formData[key];
+        if (index < primaryKeyArray.length - 1) {
+          endpoint += "/";
         }
-      );
-
+      });
+  
+      const response = await fetch(endpoint, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
       if (response.ok) {
+        // Fetch updated data and update tableData state
         const updatedDataResponse = await fetch(
           `http://localhost:4000/get${activeTable}`
-            // .replace("_", "")
-            // .replace("_", "")}`
         );
         const updatedData = await updatedDataResponse.json();
         setTableData(updatedData);
@@ -162,12 +166,13 @@ const Content = ({ activeTable }) => {
       setTimeout(() => setError(null), 5000);
     }
   };
+  
 
   const determinePrimaryKeys = (tableName, formData) => {
     // Map table names to their respective primary key field(s)
     const primaryKeysMap = {
-      Users: [":user_id"],
-      EventCategories: [":category_name"],
+      Users: ["user_id"],
+      EventCategories: ["category_name"],
       Venues: ["venue_name"],
       Events: ["event_name"],
       Orders: ["order_id"],

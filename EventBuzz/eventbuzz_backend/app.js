@@ -10,7 +10,7 @@ app.use(express.json());
 const DB_HOST = "localhost";
 const DB_NAME = "EventBuzz";
 const DB_USER = "root";
-const DB_PASSWORD = "Root123!";
+const DB_PASSWORD = "Gargi@2000";
 
 // MySQL Database Connection
 const connection = mysql.createConnection({
@@ -314,70 +314,70 @@ app.get("/getEventsOrganisedByOrganisers", (req, res) =>
 
 // Route for updating Users table
 
-app.put("/updateUser/:user_id", (req, res) => {
+app.put("/updateUsers/:user_id", (req, res) => {
   const primaryKey = "user_id";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Users", primaryKey, updateData);
 });
 
 // Route for updating EventCategories table
-app.put("/updateEventCategory/:category_name", (req, res) => {
+app.put("/updateEventCategories/:category_name", (req, res) => {
   const primaryKey = "category_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "EventCategories", primaryKey, updateData);
 });
 
 // Route for updating Venues table
-app.put("/updateVenue/:venue_name", (req, res) => {
+app.put("/updateVenues/:venue_name", (req, res) => {
   const primaryKey = "venue_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Venues", primaryKey, updateData);
 });
 
 // Route for updating Events table
-app.put("/updateEvent/:event_name", (req, res) => {
+app.put("/updateEvents/:event_name", (req, res) => {
   const primaryKey = "event_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Events", primaryKey, updateData);
 });
 
 // Route for updating Orders table
-app.put("/updateOrder/:order_id", (req, res) => {
+app.put("/updateOrders/:order_id", (req, res) => {
   const primaryKey = "order_id";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Orders", primaryKey, updateData);
 });
 
 // Route for updating Tickets table
-app.put("/updateTicket/:ticket_id", (req, res) => {
+app.put("/updateTickets/:ticket_id", (req, res) => {
   const primaryKey = "ticket_id";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Tickets", primaryKey, updateData);
 });
 
 // Route for updating Reviews table with composite primary key
-app.put("/updateReview/:user_id/:event_name", (req, res) => {
+app.put("/updateReviews/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "Reviews", primaryKey, updateData);
 });
 
 // Route for updating Sponsors table
-app.put("/updateSponsor/:sponsor_name", (req, res) => {
+app.put("/updateSponsors/:sponsor_name", (req, res) => {
   const primaryKey = "sponsor_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Sponsors", primaryKey, updateData);
 });
 
 // Route for updating Organisers table
-app.put("/updateOrganiser/:organiser_name", (req, res) => {
+app.put("/updateOrganisers/:organiser_name", (req, res) => {
   const primaryKey = "organiser_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Organisers", primaryKey, updateData);
 });
 
 // Route for updating Notifications table with composite primary keys
-app.put("/updateNotification/:notification_id/:event_name", (req, res) => {
+app.put("/updateNotifications/:notification_id/:event_name", (req, res) => {
   const primaryKey = ["notification_id", "event_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "Notifications", primaryKey, updateData);
