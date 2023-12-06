@@ -73,5 +73,5 @@ select CalculateAge('1999-02-22');
 select CalculateDuration('2021-01-01 10:00:00', '2021-01-01 12:00:00');
 
 -- select CalculateDuration('2021-01-01 10:00:00', '2021-01-01 09:00:00');
-
+-- test
 
