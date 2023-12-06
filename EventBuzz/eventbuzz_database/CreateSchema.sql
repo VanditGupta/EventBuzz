@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Users (
     last_name VARCHAR(255),
     date_of_birth VARCHAR(255),
     sex ENUM('male', 'female', 'other') NOT NULL DEFAULT 'female',
-    phone_number VARCHAR(20),
+    contact_phone VARCHAR(20),
     street_no INT,
     street_name VARCHAR(255),
     unit_no INT,
