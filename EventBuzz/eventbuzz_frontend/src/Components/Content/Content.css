@@ -4,8 +4,10 @@
   flex: 1;
   padding: 40px 20px;
   box-sizing: border-box;
-  transition: margin-left 0.3s;
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for a modern feel */
   position: relative;
+  background-color: #f8f9fa; /* A light background for a modern, airy feel */
+  border-left: 1px solid #eaecef; /* Subtle border for definition */
 }
 
 .right-content.collapsed {
@@ -15,6 +17,8 @@
 .right-content h2 {
   color: #007bff;
   margin-bottom: 20px;
+  font-size: 26px; /* Slightly larger heading for modern typography */
+  font-weight: 600; /* Bolder weight for the heading */
 }
 
 table {
@@ -22,10 +26,10 @@ table {
   border-collapse: collapse;
   margin-top: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05); /* Subtle shadow for depth */
 }
 
-th,
-td {
+th, td {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: left;
@@ -36,6 +40,7 @@ td {
 
 th {
   background-color: #f5f5f5;
+  font-weight: 600; /* Bolder font for headers */
 }
 
 td {
@@ -45,6 +50,10 @@ td {
 form {
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff; /* White background for the form */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1); /* Shadow for depth */
+  border-radius: 8px; /* Rounded corners */
 }
 
 form div {
@@ -55,6 +64,7 @@ label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  color: #343a40; /* Darker color for contrast */
 }
 
 input {
@@ -64,6 +74,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-top: 5px;
+  font-size: 16px; /* Larger font size */
 }
 
 button {
@@ -74,6 +85,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.2s; /* Smooth transition for button hover */
 }
 
 button:hover {
@@ -86,7 +98,7 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
-  background-color: #d9534f; /* Bootstrap's red color for danger */
+  background-color: #d9534f;
   color: white;
   border-radius: 5px;
   font-size: 14px;
@@ -94,12 +106,6 @@ button:hover {
   display: block;
   position: absolute;
 }
-
-/* .error-message.show {
-  animation: fadeIn 1s;
-  display: block;
-  position: absolute;
-} */
 
 @keyframes fadeIn {
   from {
