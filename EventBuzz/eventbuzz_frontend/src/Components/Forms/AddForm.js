@@ -14,11 +14,23 @@ const AddForm = ({ tableData, onAdd }) => {
     "ticket_quantity"
   ];
 
+  const numericFields = [
+    "total_amount",
+    "ticket_price",
+    "sponsorship_amount"
+  ];
+
   const validateInput = (columnName, value) => {
     // Check if the field should be an integer
     if (integerFields.includes(columnName) && !/^\d*$/.test(value)) {
       return `${columnName.replace(/_/g, " ")} must be an integer.`;
     }
+
+    // Check if the field should be numeric (integer or float)
+    if (numericFields.includes(columnName) && isNaN(value)) {
+      return `${columnName.replace(/_/g, " ")} must be a numeric value.`;
+    }
+
     return "";
   };
 
