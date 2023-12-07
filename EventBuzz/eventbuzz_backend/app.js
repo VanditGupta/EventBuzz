@@ -117,26 +117,26 @@ const executeDeleteQuery = (req, res, tableName, primaryKey) => {
 // Routes for inserting data into EventBuzz Schema
 
 // Route for inserting into Users table
-app.post("/insertIntoUsersV2", (req, res) => {
+app.post("/insertIntoUsers", (req, res) => {
   const data = req.body;
   console.log(data);
   executeInsertQuery(req, res, "Users", data);
 });
 
 // Route for inserting into EventCategories table
-app.post("/insertIntoEventCategoriesV2", (req, res) => {
+app.post("/insertIntoEventCategories", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "EventCategories", data);
 });
 
 // Route for inserting into Venues table
-app.post("/insertIntoVenuesV2", (req, res) => {
+app.post("/insertIntoVenues", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Venues", data);
 });
 
 // Route for inserting into Events table
-app.post("/insertIntoEventsV2", (req, res) => {
+app.post("/insertIntoEvents", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Events", data);
 });
@@ -148,60 +148,60 @@ app.post("/insertIntoOrders", (req, res) => {
 });
 
 // Route for inserting into Tickets table
-app.post("/insertIntoTicketsV2", (req, res) => {
+app.post("/insertIntoTickets", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Tickets", data);
 });
 
 // Route for inserting into Reviews table
-app.post("/insertIntoReviewsV2", (req, res) => {
+app.post("/insertIntoReviews", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Reviews", data);
 });
 
 // Route for inserting into Sponsors table
-app.post("/insertIntoSponsorsV2", (req, res) => {
+app.post("/insertIntoSponsors", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Sponsors", data);
 });
 
 
 // Route for inserting into Organisers table
-app.post("/insertIntoOrganisersV2", (req, res) => {
+app.post("/insertIntoOrganisers", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Organisers", data);
 });
 
 
 // Route for inserting into Notifications table
-app.post("/insertIntoNotificationsV2", (req, res) => {
+app.post("/insertIntoNotifications", (req, res) => {
   const data = req.body;
   executeInsertQuery(req, res, "Notifications", data);
 });
 
 // Route for inserting into NotificationsSendToUsers table
-app.post("/insertIntoNotificationsSendToUsersV2", (req, res) => {
+app.post("/insertIntoNotificationsSendToUsers", (req, res) => {
   const tableName = "NotificationsSendToUsers";
   const data = req.body; 
   executeInsertQuery(req, res, tableName, data);
 });
 
 // Route for inserting into UsersRegisterForEvents table
-app.post("/insertIntoUsersRegisterForEventsV2", (req, res) => {
+app.post("/insertIntoUsersRegisterForEvents", (req, res) => {
   const tableName = "UsersRegisterForEvents";
   const data = req.body; 
   executeInsertQuery(req, res, tableName, data);
 });
 
 // Route for inserting into EventsFundedBySponsors table
-app.post("/insertIntoEventsFundedBySponsorsV2", (req, res) => {
+app.post("/insertIntoEventsFundedBySponsors", (req, res) => {
   const tableName = "EventsFundedBySponsors";
   const data = req.body;
   executeInsertQuery(req, res, tableName, data);
 });
 
 // Route for inserting into EventsOrganisedByOrganisers table
-app.post("/insertIntoEventsOrganisedByOrganisersV2", (req, res) => {
+app.post("/insertIntoEventsOrganisedByOrganisers", (req, res) => {
   const tableName = "EventsOrganisedByOrganisers";
   const data = req.body;
   executeInsertQuery(req, res, tableName, data);
@@ -284,35 +284,35 @@ app.get("/getEventsOrganisedByOrganisersV2", (req, res) =>
 
 // Route for updating Users table
 
-app.put("/updateUsersV2/:user_id", (req, res) => {
+app.put("/updateUsers/:user_id", (req, res) => {
   const primaryKey = "user_id";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Users", primaryKey, updateData);
 });
 
 // Route for updating EventCategories table
-app.put("/updateEventCategoriesV2/:category_name", (req, res) => {
+app.put("/updateEventCategories/:category_name", (req, res) => {
   const primaryKey = "category_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "EventCategories", primaryKey, updateData);
 });
 
 // Route for updating Venues table
-app.put("/updateVenuesV2/:venue_name", (req, res) => {
+app.put("/updateVenues/:venue_name", (req, res) => {
   const primaryKey = "venue_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Venues", primaryKey, updateData);
 });
 
 // Route for updating Events table
-app.put("/updateEventsV2/:event_name", (req, res) => {
+app.put("/updateEvents/:event_name", (req, res) => {
   const primaryKey = "event_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Events", primaryKey, updateData);
 });
 
 // Route for updating Orders table
-app.put("/updateOrdersV2/:order_id", (req, res) => {
+app.put("/updateOrders/:order_id", (req, res) => {
   const primaryKey = "order_id";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Orders", primaryKey, updateData);
@@ -326,56 +326,56 @@ app.put("/updateTickets/:ticket_id", (req, res) => {
 });
 
 // Route for updating Reviews table with composite primary key
-app.put("/updateReviewsV2/:user_id/:event_name", (req, res) => {
+app.put("/updateReviews/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "Reviews", primaryKey, updateData);
 });
 
 // Route for updating Sponsors table
-app.put("/updateSponsorsV2/:sponsor_name", (req, res) => {
+app.put("/updateSponsors/:sponsor_name", (req, res) => {
   const primaryKey = "sponsor_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Sponsors", primaryKey, updateData);
 });
 
 // Route for updating Organisers table
-app.put("/updateOrganisersV2/:organiser_name", (req, res) => {
+app.put("/updateOrganisers/:organiser_name", (req, res) => {
   const primaryKey = "organiser_name";
   const updateData = req.body;
   executeUpdateQuery(req, res, "Organisers", primaryKey, updateData);
 });
 
 // Route for updating Notifications table with composite primary keys
-app.put("/updateNotificationsV2/:notification_id/:event_name", (req, res) => {
+app.put("/updateNotifications/:notification_id/:event_name", (req, res) => {
   const primaryKey = ["notification_id", "event_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "Notifications", primaryKey, updateData);
 });
 
 // Route for updating NotificationsSendToUsers table with composite primary keys
-app.put("/updateNotificationsSendToUsersV2/:notification_id/:user_id", (req, res) => {
+app.put("/updateNotificationsSendToUsers/:notification_id/:user_id", (req, res) => {
   const primaryKey = ["notification_id", "user_id"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "NotificationsSendToUsers", primaryKey, updateData);
 });
 
 // Route for updating UsersRegisterForEvents table with composite primary keys
-app.put("/updateUsersRegisterForEventsV2/:user_id/:event_name", (req, res) => {
+app.put("/updateUsersRegisterForEvents/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "UsersRegisterForEvents", primaryKey, updateData);
 });
 
 // Route for updating EventsFundedBySponsors table with composite primary keys
-app.put("/updateEventsFundedBySponsorsV2/:event_name/:sponsor_name", (req, res) => {
+app.put("/updateEventsFundedBySponsors/:event_name/:sponsor_name", (req, res) => {
   const primaryKey = ["event_name", "sponsor_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "EventsFundedBySponsors", primaryKey, updateData);
 });
 
 // Route for updating EventsOrganisedByOrganisers table with composite primary keys
-app.put("/updateEventsOrganisedByOrganisersV2/:event_name/:organiser_name", (req, res) => {
+app.put("/updateEventsOrganisedByOrganisers/:event_name/:organiser_name", (req, res) => {
   const primaryKey = ["event_name", "organiser_name"];
   const updateData = req.body;
   executeUpdateQuery(req, res, "EventsOrganisedByOrganisers", primaryKey, updateData);
@@ -470,7 +470,7 @@ app.delete("/deleteEventsOrganisedByOrganisersV2/:event_name/:organiser_name", (
 
 /* ------------------------ */
 
-// Route for calling the GetUsers() stored procedure
+// Route for calling the GetUsers() using stored procedure
 
 app.get("/getUsers", (req, res) => {
   connection.query(
@@ -486,7 +486,7 @@ app.get("/getUsers", (req, res) => {
   );
 });
 
-// Route for calling the GetEventCategories() stored procedure
+// Route for calling the GetEventCategories() using stored procedure
 
 app.get("/getEventCategories", (req, res) => {
   connection.query(
@@ -503,7 +503,7 @@ app.get("/getEventCategories", (req, res) => {
 }
 );
 
-// Route for calling the GetVenues() stored procedure
+// Route for calling the GetVenues() using stored procedure
 
 app.get("/getVenues", (req, res) => {
   connection.query(
@@ -520,7 +520,7 @@ app.get("/getVenues", (req, res) => {
 }
 );
 
-// Route for calling the GetEvents() stored procedure
+// Route for calling the GetEvents() using stored procedure
 
 app.get("/getEvents", (req, res) => {
   connection.query(
@@ -537,7 +537,7 @@ app.get("/getEvents", (req, res) => {
 }
 );
 
-// Route for calling the GetOrders() stored procedure
+// Route for calling the GetOrders() using stored procedure
 
 app.get("/getOrders", (req, res) => {
   connection.query(
@@ -554,7 +554,7 @@ app.get("/getOrders", (req, res) => {
 }
 );
 
-// Route for calling the GetTickets() stored procedure
+// Route for calling the GetTickets() using stored procedure
 
 app.get("/getTickets", (req, res) => {
   connection.query(
@@ -571,7 +571,7 @@ app.get("/getTickets", (req, res) => {
 }
 );
 
-// Route for calling the GetReviews() stored procedure
+// Route for calling the GetReviews() using stored procedure
 
 app.get("/getReviews", (req, res) => {
   connection.query(
@@ -588,7 +588,7 @@ app.get("/getReviews", (req, res) => {
 }
 );
 
-// Route for calling the GetSponsors() stored procedure
+// Route for calling the GetSponsors() using stored procedure
 
 app.get("/getSponsors", (req, res) => {
   connection.query(
@@ -605,7 +605,7 @@ app.get("/getSponsors", (req, res) => {
 }
 );
 
-// Route for calling the GetOrganisers() stored procedure
+// Route for calling the GetOrganisers() using stored procedure
 
 app.get("/getOrganisers", (req, res) => {
   connection.query(
@@ -622,7 +622,7 @@ app.get("/getOrganisers", (req, res) => {
 }
 );
 
-// Route for calling the GetNotifications() stored procedure
+// Route for calling the GetNotifications() using stored procedure
 
 app.get("/getNotifications", (req, res) => {
   connection.query(
@@ -640,7 +640,7 @@ app.get("/getNotifications", (req, res) => {
 );
 
 
-// Route for calling the GetNotificationsSendToUsers() stored procedure
+// Route for calling the GetNotificationsSendToUsers() using stored procedure
 
 app.get("/getNotificationsSendToUsers", (req, res) => {
   connection.query(
@@ -658,7 +658,7 @@ app.get("/getNotificationsSendToUsers", (req, res) => {
 );
 
 
-// Route for calling the GetUsersRegisterForEvents() stored procedure
+// Route for calling the GetUsersRegisterForEvents() using stored procedure
 
 app.get("/getUsersRegisterForEvents", (req, res) => {
   connection.query(
@@ -676,7 +676,7 @@ app.get("/getUsersRegisterForEvents", (req, res) => {
 );
 
 
-// Route for calling the GetEventsFundedBySponsors() stored procedure
+// Route for calling the GetEventsFundedBySponsors() using stored procedure
 
 app.get("/getEventsFundedBySponsors", (req, res) => {
   connection.query(
@@ -694,7 +694,7 @@ app.get("/getEventsFundedBySponsors", (req, res) => {
 );
 
 
-// Route for calling the GetEventsOrganisedByOrganisers() stored procedure
+// Route for calling the GetEventsOrganisedByOrganisers() using stored procedure
 
 app.get("/getEventsOrganisedByOrganisers", (req, res) => {
   connection.query(
@@ -711,9 +711,9 @@ app.get("/getEventsOrganisedByOrganisers", (req, res) => {
 }
 );
 
-// Route for calling the InsertUser() stored procedure
+// Route for calling the InsertUser() using stored procedure
 
-app.post('/insertIntoUsers', (req, res) => {
+app.post('/insertIntoUsersV2', (req, res) => {
   const {
       username,
       email,
@@ -768,9 +768,9 @@ app.post('/insertIntoUsers', (req, res) => {
   );
 });
 
-// Route for calling the InsertEventCategory() stored procedure
+// Route for calling the InsertEventCategory() using stored procedure
 
-app.post('/insertIntoEventCategories', (req, res) => {
+app.post('/insertIntoEventCategoriesV2', (req, res) => {
   const { category_name, description } = req.body;
 
   connection.query(
@@ -788,9 +788,9 @@ app.post('/insertIntoEventCategories', (req, res) => {
 }
 );
 
-// Route for calling the InsertVenue() stored procedure
+// Route for calling the InsertVenue() using stored procedure
 
-app.post('/insertIntoVenues', (req, res) => {
+app.post('/insertIntoVenuesV2', (req, res) => {
   const {
       venue_name,
       street_no,
@@ -829,9 +829,9 @@ app.post('/insertIntoVenues', (req, res) => {
   );
 });
 
-// Route for calling the InsertEvent() stored procedure
+// Route for calling the InsertEvent() using stored procedure
 
-app.post('/insertIntoEvents', (req, res) => {
+app.post('/insertIntoEventsV2', (req, res) => {
   const {
       event_name,
       event_description,
@@ -867,7 +867,7 @@ app.post('/insertIntoEvents', (req, res) => {
 });
 
 
-// Route for calling the InsertOrder() stored procedure
+// Route for calling the InsertOrder() using stored procedure
 
 app.post('/insertIntoOrdersV2', (req, res) => {
   const {
@@ -903,10 +903,9 @@ app.post('/insertIntoOrdersV2', (req, res) => {
 });
 
 
-// Route for calling the InsertTicket() stored procedure
+// Route for calling the InsertTicket() using stored procedure
 
-app.post('/insertIntoTickets', (req, res) => {
-  // Extract ticket data from request body
+app.post('/insertIntoTicketsV2', (req, res) => {
   const {
       ticket_price,
       ticket_quantity,
@@ -916,7 +915,6 @@ app.post('/insertIntoTickets', (req, res) => {
       order_id
   } = req.body;
 
-  // Call the InsertTicket stored procedure
   connection.query(
       'CALL InsertTicket(?, ?, ?, ?, ?, ?)',
       [
@@ -939,10 +937,9 @@ app.post('/insertIntoTickets', (req, res) => {
 });
 
 
-// Route for calling the InsertReview() stored procedure
+// Route for calling the InsertReview() using stored procedure
 
-app.post('/insertIntoReviews', (req, res) => {
-  // Extract review data from request body
+app.post('/insertIntoReviewsV2', (req, res) => {
   const {
       rating,
       comment,
@@ -951,7 +948,6 @@ app.post('/insertIntoReviews', (req, res) => {
       event_name
   } = req.body;
 
-  // Call the InsertReview stored procedure
   connection.query(
       'CALL InsertReview(?, ?, ?, ?, ?)',
       [
@@ -973,10 +969,9 @@ app.post('/insertIntoReviews', (req, res) => {
 });
 
 
-// Route for calling the InsertSponsor() stored procedure
+// Route for calling the InsertSponsor() using stored procedure
 
-app.post('/insertIntoSponsors', (req, res) => {
-  // Extract sponsor data from request body
+app.post('/insertIntoSponsorsV2', (req, res) => {
   const {
       sponsor_name,
       description,
@@ -987,7 +982,6 @@ app.post('/insertIntoSponsors', (req, res) => {
       total_sponsorship_amount
   } = req.body;
 
-  // Call the InsertSponsor stored procedure
   connection.query(
       'CALL InsertSponsor(?, ?, ?, ?, ?, ?, ?)',
       [
@@ -1011,10 +1005,9 @@ app.post('/insertIntoSponsors', (req, res) => {
 });
 
 
-// Route for calling the InsertOrganiser() stored procedure
+// Route for calling the InsertOrganiser() using stored procedure
 
-app.post('/insertIntoOrganisers', (req, res) => {
-  // Extract organiser data from request body
+app.post('/insertIntoOrganisersV2', (req, res) => {
   const {
       organiser_name,
       description,
@@ -1023,7 +1016,6 @@ app.post('/insertIntoOrganisers', (req, res) => {
       contact_phone
   } = req.body;
 
-  // Call the InsertOrganiser stored procedure
   connection.query(
       'CALL InsertOrganiser(?, ?, ?, ?, ?)',
       [
@@ -1045,10 +1037,9 @@ app.post('/insertIntoOrganisers', (req, res) => {
 });
 
 
-// Route for calling the InsertNotification() stored procedure
+// Route for calling the InsertNotification() using stored procedure
 
-app.post('/insertIntoNotifications', (req, res) => {
-  // Extract notification data from request body
+app.post('/insertIntoNotificationsV2', (req, res) => {
   const {
       notification_id,
       notification_text,
@@ -1056,7 +1047,6 @@ app.post('/insertIntoNotifications', (req, res) => {
       event_name
   } = req.body;
 
-  // Call the InsertNotification stored procedure
   connection.query(
       'CALL InsertNotification(?, ?, ?, ?)',
       [
@@ -1077,17 +1067,15 @@ app.post('/insertIntoNotifications', (req, res) => {
 });
 
 
-// Route for calling the InsertNotificationSendToUsers() stored procedure
+// Route for calling the InsertNotificationSendToUsers() using stored procedure
 
-app.post('/insertIntoNotificationsSendToUsers', (req, res) => {
-  // Extract notification-user linkage data from request body
+app.post('/insertIntoNotificationsSendToUsersV2', (req, res) => {
   const {
       user_id,
       notification_id,
       priority
   } = req.body;
 
-  // Call the InsertNotificationSendToUsers stored procedure
   connection.query(
       'CALL InsertNotificationSendToUsers(?, ?, ?)',
       [
@@ -1107,17 +1095,15 @@ app.post('/insertIntoNotificationsSendToUsers', (req, res) => {
 });
 
 
-// Route for calling the InsertUserRegisterForEvent() stored procedure
+// Route for calling the InsertUserRegisterForEvent() using stored procedure
 
-app.post('/insertIntoUsersRegisterForEvents', (req, res) => {
-  // Extract user-event registration data from request body
+app.post('/insertIntoUsersRegisterForEventsV2', (req, res) => {
   const {
       user_id,
       event_name,
       registration_date
   } = req.body;
 
-  // Call the InsertUserRegisterForEvent stored procedure
   connection.query(
       'CALL InsertUserRegisterForEvents(?, ?, ?)',
       [
@@ -1137,10 +1123,9 @@ app.post('/insertIntoUsersRegisterForEvents', (req, res) => {
 });
 
 
-// Route for calling the InsertEventFundedBySponsor() stored procedure
+// Route for calling the InsertEventFundedBySponsor() using stored procedure
 
-app.post('/insertIntoEventsFundedBySponsors', (req, res) => {
-  // Extract event sponsorship data from request body
+app.post('/insertIntoEventsFundedBySponsorsV2', (req, res) => {
   const {
       event_name,
       sponsor_name,
@@ -1148,7 +1133,6 @@ app.post('/insertIntoEventsFundedBySponsors', (req, res) => {
       sponsorship_date
   } = req.body;
 
-  // Call the InsertEventFundedBySponsor stored procedure
   connection.query(
       'CALL InsertEventFundedBySponsors(?, ?, ?, ?)',
       [
@@ -1169,17 +1153,15 @@ app.post('/insertIntoEventsFundedBySponsors', (req, res) => {
 });
 
 
-// Route for calling the InsertEventOrganisedByOrganiser() stored procedure
+// Route for calling the InsertEventOrganisedByOrganiser() using stored procedure
 
-app.post('/insertIntoEventsOrganisedByOrganisers', (req, res) => {
-  // Extract event-organiser linkage data from request body
+app.post('/insertIntoEventsOrganisedByOrganisersV2', (req, res) => {
   const {
       event_name,
       organiser_name,
       organiser_role
   } = req.body;
 
-  // Call the InsertEventOrganisedByOrganiser stored procedure
   connection.query(
       'CALL InsertEventOrganisedByOrganisers(?, ?, ?)',
       [
@@ -1198,7 +1180,7 @@ app.post('/insertIntoEventsOrganisedByOrganisers', (req, res) => {
   );
 });
 
-// Route for calling the UpdateUser() stored procedure
+// Route for calling the UpdateUser() using stored procedure
 
 app.put('/updateUsers/:user_id', (req, res) => {
   const { user_id } = req.params;
@@ -1255,7 +1237,7 @@ app.put('/updateUsers/:user_id', (req, res) => {
   );
 });
 
-// Route for calling the UpdateEventCategory() stored procedure
+// Route for calling the UpdateEventCategory() using stored procedure
 
 app.put('/updateEventCategories/:category_name', (req, res) => {
   const { category_name } = req.params;
@@ -1275,7 +1257,7 @@ app.put('/updateEventCategories/:category_name', (req, res) => {
   );
 });
 
-// Route for calling the UpdateVenue() stored procedure
+// Route for calling the UpdateVenue() using stored procedure
 
 app.put('/updateVenues/:venue_name', (req, res) => {
   const { venue_name } = req.params;
@@ -1291,7 +1273,6 @@ app.put('/updateVenues/:venue_name', (req, res) => {
       contact_phone
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateVenue' exists
   connection.query(
       'CALL UpdateVenue(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [
@@ -1318,7 +1299,7 @@ app.put('/updateVenues/:venue_name', (req, res) => {
 });
 
 
-// Route for calling the UpdateEvent() stored procedure
+// Route for calling the UpdateEvent() using stored procedure
 
 app.put('/updateEvents/:event_name', (req, res) => {
   const { event_name } = req.params;
@@ -1332,7 +1313,6 @@ app.put('/updateEvents/:event_name', (req, res) => {
       venue_name
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateEvent' exists in your database
   connection.query(
       'CALL UpdateEvent(?, ?, ?, ?, ?, ?, ?, ?)',
       [
@@ -1357,7 +1337,7 @@ app.put('/updateEvents/:event_name', (req, res) => {
 });
 
 
-// Route for calling the UpdateOrder() stored procedure
+// Route for calling the UpdateOrder() using stored procedure
 
 app.put('/updateOrders/:order_id', (req, res) => {
   const { order_id } = req.params;
@@ -1370,7 +1350,6 @@ app.put('/updateOrders/:order_id', (req, res) => {
       event_name
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateOrder' exists in your database
   connection.query(
       'CALL UpdateOrder(?, ?, ?, ?, ?, ?, ?)',
       [
@@ -1394,7 +1373,7 @@ app.put('/updateOrders/:order_id', (req, res) => {
 });
 
 
-// Route for calling the UpdateTicket() stored procedure
+// Route for calling the UpdateTicket() using stored procedure
 
 app.put('/updateTicketsV2/:ticket_id', (req, res) => {
   const { ticket_id } = req.params;
@@ -1407,7 +1386,6 @@ app.put('/updateTicketsV2/:ticket_id', (req, res) => {
       order_id
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateTicket' exists
   connection.query(
       'CALL UpdateTicket(?, ?, ?, ?, ?)',
       [
@@ -1431,7 +1409,7 @@ app.put('/updateTicketsV2/:ticket_id', (req, res) => {
 });
 
 
-// Route for calling the UpdateReview() stored procedure
+// Route for calling the UpdateReview() using stored procedure
 
 app.put('/updateReviews/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
@@ -1441,7 +1419,6 @@ app.put('/updateReviews/:user_id/:event_name', (req, res) => {
       review_date
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateReview' exists
   connection.query(
       'CALL UpdateReview(?, ?, ?, ?, ?)',
       [
@@ -1463,7 +1440,7 @@ app.put('/updateReviews/:user_id/:event_name', (req, res) => {
 });
 
 
-// Route for calling the UpdateSponsor() stored procedure
+// Route for calling the UpdateSponsor() using stored procedure
 
 app.put('/updateSponsors/:sponsor_name', (req, res) => {
   const { sponsor_name } = req.params;
@@ -1476,7 +1453,6 @@ app.put('/updateSponsors/:sponsor_name', (req, res) => {
       total_sponsorship_amount
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateSponsor' exists
   connection.query(
       'CALL UpdateSponsor(?, ?, ?, ?, ?, ?, ?)',
       [
@@ -1500,7 +1476,7 @@ app.put('/updateSponsors/:sponsor_name', (req, res) => {
 });
 
 
-// Route for calling the UpdateOrganiser() stored procedure
+// Route for calling the UpdateOrganiser() using stored procedure
 
 app.put('/updateOrganisers/:organiser_name', (req, res) => {
   const { organiser_name } = req.params;
@@ -1511,7 +1487,6 @@ app.put('/updateOrganisers/:organiser_name', (req, res) => {
       contact_phone
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateOrganiser' exists
   connection.query(
       'CALL UpdateOrganiser(?, ?, ?, ?, ?)',
       [
@@ -1533,7 +1508,7 @@ app.put('/updateOrganisers/:organiser_name', (req, res) => {
 });
 
 
-// Route for calling the UpdateNotification() stored procedure
+// Route for calling the UpdateNotification() using stored procedure
 
 app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
   const { notification_id } = req.params;
@@ -1543,7 +1518,6 @@ app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
       event_name
   } = req.body;
 
-  // Assuming a stored procedure named 'UpdateNotification' exists
   connection.query(
       'CALL UpdateNotification(?, ?, ?, ?)',
       [
@@ -1564,13 +1538,12 @@ app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
 });
 
 
-// Route for calling the updateNotificationsSendToUsers() stored procedure
+// Route for calling the updateNotificationsSendToUsers() using stored procedure
 
 app.put('/updateNotificationsSendToUsers/:user_id/:notification_id', (req, res) => {
   const { user_id, notification_id } = req.params;
   const { priority } = req.body;
 
-  // Assuming a stored procedure named 'UpdateNotificationSendToUser' exists
   connection.query(
       'CALL UpdateNotificationSendToUsers(?, ?, ?)',
       [
@@ -1590,13 +1563,12 @@ app.put('/updateNotificationsSendToUsers/:user_id/:notification_id', (req, res) 
 });
 
 
-// Route for calling the updateUsersRegisterForEvents() stored procedure
+// Route for calling the updateUsersRegisterForEvents() using stored procedure
 
 app.put('/updateUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
   const { registration_date } = req.body;
 
-  // Assuming a stored procedure named 'UpdateUserRegisterForEvent' exists
   connection.query(
       'CALL UpdateUserRegisterForEvents(?, ?, ?)',
       [
@@ -1616,13 +1588,12 @@ app.put('/updateUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
 });
 
 
-// Route for calling the updateEventsFundedBySponsors() stored procedure
+// Route for calling the updateEventsFundedBySponsors() using stored procedure
 
 app.put('/updateEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) => {
   const { event_name, sponsor_name } = req.params;
   const { sponsorship_amount, sponsorship_date } = req.body;
 
-  // Assuming a stored procedure named 'UpdateEventFundedBySponsor' exists
   connection.query(
       'CALL UpdateEventFundedBySponsors(?, ?, ?, ?)',
       [
@@ -1643,13 +1614,12 @@ app.put('/updateEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) =>
 });
 
 
-// Route for calling the updateEventsOrganisedByOrganisers() stored procedure
+// Route for calling the updateEventsOrganisedByOrganisers() using stored procedure
 
 app.put('/updateEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, res) => {
   const { event_name, organiser_name } = req.params;
   const { organiser_role } = req.body;
 
-  // Assuming a stored procedure named 'UpdateEventOrganisedByOrganiser' exists
   connection.query(
       'CALL UpdateEventOrganisedByOrganisers(?, ?, ?)',
       [
@@ -1669,12 +1639,11 @@ app.put('/updateEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, 
 });
 
 
-// Route for calling the DeleteUser() stored procedure
+// Route for calling the DeleteUser() using stored procedure
 
 app.delete('/deleteUsers/:user_id', (req, res) => {
   const { user_id } = req.params;
 
-  // Assuming a stored procedure named 'DeleteUser' exists
   connection.query(
       'CALL DeleteUser(?)',
       [user_id],
@@ -1690,12 +1659,11 @@ app.delete('/deleteUsers/:user_id', (req, res) => {
 }
 );
 
-// Route for calling the DeleteEventCategory() stored procedure
+// Route for calling the DeleteEventCategory() using stored procedure
 
 app.delete('/deleteEventCategories/:category_name', (req, res) => {
   const { category_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteEventCategory' exists
   connection.query(
       'CALL DeleteEventCategory(?)',
       [category_name],
@@ -1711,12 +1679,11 @@ app.delete('/deleteEventCategories/:category_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteVenue() stored procedure
+// Route for calling the DeleteVenue() using stored procedure
 
 app.delete('/deleteVenues/:venue_name', (req, res) => {
   const { venue_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteVenue' exists
   connection.query(
       'CALL DeleteVenue(?)',
       [venue_name],
@@ -1732,12 +1699,11 @@ app.delete('/deleteVenues/:venue_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteEvent() stored procedure
+// Route for calling the DeleteEvent() using stored procedure
 
 app.delete('/deleteEvents/:event_name', (req, res) => {
   const { event_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteEvent' exists
   connection.query(
       'CALL DeleteEvent(?)',
       [event_name],
@@ -1753,12 +1719,11 @@ app.delete('/deleteEvents/:event_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteOrder() stored procedure
+// Route for calling the DeleteOrder() using stored procedure
 
 app.delete('/deleteOrders/:order_id', (req, res) => {
   const { order_id } = req.params;
 
-  // Assuming a stored procedure named 'DeleteOrder' exists
   connection.query(
       'CALL DeleteOrder(?)',
       [order_id],
@@ -1774,12 +1739,11 @@ app.delete('/deleteOrders/:order_id', (req, res) => {
 }
 );
 
-// Route for calling the DeleteTicket() stored procedure
+// Route for calling the DeleteTicket() using stored procedure
 
 app.delete('/deleteTickets/:ticket_id', (req, res) => {
   const { ticket_id } = req.params;
 
-  // Assuming a stored procedure named 'DeleteTicket' exists
   connection.query(
       'CALL DeleteTicket(?)',
       [ticket_id],
@@ -1795,12 +1759,11 @@ app.delete('/deleteTickets/:ticket_id', (req, res) => {
 }
 );
 
-// Route for calling the DeleteReview() stored procedure
+// Route for calling the DeleteReview() using stored procedure
 
 app.delete('/deleteReviews/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteReview' exists
   connection.query(
       'CALL DeleteReview(?, ?)',
       [user_id, event_name],
@@ -1816,12 +1779,11 @@ app.delete('/deleteReviews/:user_id/:event_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteSponsor() stored procedure
+// Route for calling the DeleteSponsor() using stored procedure
 
 app.delete('/deleteSponsors/:sponsor_name', (req, res) => {
   const { sponsor_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteSponsor' exists
   connection.query(
       'CALL DeleteSponsor(?)',
       [sponsor_name],
@@ -1837,12 +1799,11 @@ app.delete('/deleteSponsors/:sponsor_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteOrganiser() stored procedure
+// Route for calling the DeleteOrganiser() using stored procedure
 
 app.delete('/deleteOrganisers/:organiser_name', (req, res) => {
   const { organiser_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteOrganiser' exists
   connection.query(
       'CALL DeleteOrganiser(?)',
       [organiser_name],
@@ -1858,12 +1819,11 @@ app.delete('/deleteOrganisers/:organiser_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteNotification() stored procedure
+// Route for calling the DeleteNotification() using stored procedure
 
 app.delete('/deleteNotifications/:notification_id/:event_name', (req, res) => {
   const { notification_id } = req.params;
 
-  // Assuming a stored procedure named 'DeleteNotification' exists
   connection.query(
       'CALL DeleteNotification(?)',
       [notification_id],
@@ -1879,12 +1839,11 @@ app.delete('/deleteNotifications/:notification_id/:event_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteNotificationSendToUsers() stored procedure
+// Route for calling the DeleteNotificationSendToUsers() using stored procedure
 
 app.delete('/deleteNotificationsSendToUsers/:user_id/:notification_id', (req, res) => {
   const { user_id, notification_id } = req.params;
 
-  // Assuming a stored procedure named 'DeleteNotificationSendToUser' exists
   connection.query(
       'CALL DeleteNotificationSendToUsers(?, ?)',
       [user_id, notification_id],
@@ -1900,12 +1859,11 @@ app.delete('/deleteNotificationsSendToUsers/:user_id/:notification_id', (req, re
 }
 );
 
-// Route for calling the DeleteUserRegisterForEvent() stored procedure
+// Route for calling the DeleteUserRegisterForEvent() using stored procedure
 
 app.delete('/deleteUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteUserRegisterForEvent' exists
   connection.query(
       'CALL DeleteUserRegisterForEvents(?, ?)',
       [user_id, event_name],
@@ -1921,12 +1879,11 @@ app.delete('/deleteUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
 }
 );
 
-// Route for calling the DeleteEventFundedBySponsor() stored procedure
+// Route for calling the DeleteEventFundedBySponsor() using stored procedure
 
 app.delete('/deleteEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) => {
   const { event_name, sponsor_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteEventFundedBySponsor' exists
   connection.query(
       'CALL DeleteEventFundedBySponsors(?, ?)',
       [event_name, sponsor_name],
@@ -1942,12 +1899,11 @@ app.delete('/deleteEventsFundedBySponsors/:event_name/:sponsor_name', (req, res)
 }
 );
 
-// Route for calling the DeleteEventOrganisedByOrganiser() stored procedure
+// Route for calling the DeleteEventOrganisedByOrganiser() using stored procedure
 
 app.delete('/deleteEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, res) => {
   const { event_name, organiser_name } = req.params;
 
-  // Assuming a stored procedure named 'DeleteEventOrganisedByOrganiser' exists
   connection.query(
       'CALL DeleteEventOrganisedByOrganisers(?, ?)',
       [event_name, organiser_name],

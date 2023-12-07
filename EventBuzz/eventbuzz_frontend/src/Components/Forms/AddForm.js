@@ -133,14 +133,15 @@ const AddForm = ({ currentTable, tableData, onAdd }) => {
 
   const shouldRenderDropdown = (column) => {
     console.log('currentTable:', currentTable);
-    if (currentTable !== 'EventCategories' && column === 'category_name' ||
-        currentTable !== 'Venues' && column === 'venue_name' ||
-        currentTable !== 'Events' && column === 'event_name' ||
-        currentTable !== 'Users' && column === 'user_id' ||
-        currentTable !== 'Orders' && column === 'order_id' ||
-        currentTable !== 'Notifications' && column === 'notification_id' ||
-        currentTable !== 'Sponsors' && column === 'sponsor_name' ||
-        currentTable !== 'Organisers' && column === 'organiser_name') { // Condition for organiser_name
+    if (
+      (currentTable !== 'EventCategories' && column === 'category_name') ||
+      (currentTable !== 'Venues' && column === 'venue_name') ||
+      (currentTable !== 'Events' && column === 'event_name') ||
+      (currentTable !== 'Users' && column === 'user_id') ||
+      (currentTable !== 'Orders' && column === 'order_id') ||
+      (currentTable !== 'Notifications' && column === 'notification_id') ||
+      (currentTable !== 'Sponsors' && column === 'sponsor_name') ||
+      (currentTable !== 'Organisers' && column === 'organiser_name')) { // Condition for organiser_name
       return true;
     }
     return false;
