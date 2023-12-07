@@ -227,8 +227,8 @@ VALUES
 -- SELECT * FROM UsersRegisterForEvents;
 -- SELECT * FROM EventsFundedBySponsors;
 -- SELECT * FROM EventsOrganisedByOrganisers;
--- select * from EventBuzzAudit.ErrorLog;
--- select * from EventBuzzAudit.UserLog;
+-- select * from EventBuzz.ErrorLog;
+-- select * from EventBuzz.UserLog;
 
 
 -- Truncate child tables first
@@ -240,7 +240,9 @@ VALUES
 -- DELETE FROM `EventBuzz`.Tickets;
 -- DELETE FROM `EventBuzz`.Reviews;
 -- DELETE FROM `EventBuzz`.Orders;
--- -- Then truncate parent tables
+
+--  Then truncate parent tables
+
 -- DELETE FROM `EventBuzz`.Users;
 -- DELETE FROM `EventBuzz`.Events;
 -- DELETE FROM `EventBuzz`.EventCategories;
@@ -248,8 +250,8 @@ VALUES
 -- DELETE FROM `EventBuzz`.Sponsors;
 -- DELETE FROM `EventBuzz`.Organisers;
 -- DELETE FROM `EventBuzz`.Notifications;
--- DELETE FROM EventBuzzAudit.ErrorLog;
--- DELETE FROM EventBuzzAudit.UserLog;
+-- DELETE FROM EventBuzz.ErrorLog;
+-- DELETE FROM EventBuzz.UserLog;
 
 -- Drop all tables
 
@@ -258,8 +260,8 @@ VALUES
 -- DROP TABLE IF EXISTS `EventBuzz`.EventsFundedBySponsors;
 -- DROP TABLE IF EXISTS `EventBuzz`.EventsOrganisedByOrganisers;
 
--- DROP TABLE IF EXISTS EventBuzzAudit.ErrorLog;
--- DROP TABLE IF EXISTS EventBuzzAudit.UserLog;
+-- DROP TABLE IF EXISTS EventBuzz.ErrorLog;
+-- DROP TABLE IF EXISTS EventBuzz.UserLog;
 -- DROP TABLE IF EXISTS `EventBuzz`.Tickets;
 -- DROP TABLE IF EXISTS `EventBuzz`.Reviews;
 -- DROP TABLE IF EXISTS `EventBuzz`.Orders;

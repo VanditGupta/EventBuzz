@@ -3,7 +3,6 @@
 CREATE DATABASE IF NOT EXISTS EventBuzz;
 USE EventBuzz;
 
--- DROP DATABASE EventBuzzAudit;
 -- DROP DATABASE EventBuzz;
 
 
