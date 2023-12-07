@@ -1182,7 +1182,7 @@ app.post('/insertIntoEventsOrganisedByOrganisersV2', (req, res) => {
 
 // Route for calling the UpdateUser() using stored procedure
 
-app.put('/updateUsers/:user_id', (req, res) => {
+app.put('/updateUsersV2/:user_id', (req, res) => {
   const { user_id } = req.params;
   const {
       username,
@@ -1239,7 +1239,7 @@ app.put('/updateUsers/:user_id', (req, res) => {
 
 // Route for calling the UpdateEventCategory() using stored procedure
 
-app.put('/updateEventCategories/:category_name', (req, res) => {
+app.put('/updateEventCategoriesV2/:category_name', (req, res) => {
   const { category_name } = req.params;
   const { description } = req.body;
 
@@ -1259,7 +1259,7 @@ app.put('/updateEventCategories/:category_name', (req, res) => {
 
 // Route for calling the UpdateVenue() using stored procedure
 
-app.put('/updateVenues/:venue_name', (req, res) => {
+app.put('/updateVenuesV2/:venue_name', (req, res) => {
   const { venue_name } = req.params;
   const {
       street_no,
@@ -1301,7 +1301,7 @@ app.put('/updateVenues/:venue_name', (req, res) => {
 
 // Route for calling the UpdateEvent() using stored procedure
 
-app.put('/updateEvents/:event_name', (req, res) => {
+app.put('/updateEventsV2/:event_name', (req, res) => {
   const { event_name } = req.params;
   const {
       event_description,
@@ -1339,7 +1339,7 @@ app.put('/updateEvents/:event_name', (req, res) => {
 
 // Route for calling the UpdateOrder() using stored procedure
 
-app.put('/updateOrders/:order_id', (req, res) => {
+app.put('/updateOrdersV2/:order_id', (req, res) => {
   const { order_id } = req.params;
   const {
       order_date,
@@ -1411,7 +1411,7 @@ app.put('/updateTicketsV2/:ticket_id', (req, res) => {
 
 // Route for calling the UpdateReview() using stored procedure
 
-app.put('/updateReviews/:user_id/:event_name', (req, res) => {
+app.put('/updateReviewsV2/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
   const {
       rating,
@@ -1442,7 +1442,7 @@ app.put('/updateReviews/:user_id/:event_name', (req, res) => {
 
 // Route for calling the UpdateSponsor() using stored procedure
 
-app.put('/updateSponsors/:sponsor_name', (req, res) => {
+app.put('/updateSponsorsV2/:sponsor_name', (req, res) => {
   const { sponsor_name } = req.params;
   const {
       description,
@@ -1478,7 +1478,7 @@ app.put('/updateSponsors/:sponsor_name', (req, res) => {
 
 // Route for calling the UpdateOrganiser() using stored procedure
 
-app.put('/updateOrganisers/:organiser_name', (req, res) => {
+app.put('/updateOrganisersV2/:organiser_name', (req, res) => {
   const { organiser_name } = req.params;
   const {
       description,
@@ -1510,7 +1510,7 @@ app.put('/updateOrganisers/:organiser_name', (req, res) => {
 
 // Route for calling the UpdateNotification() using stored procedure
 
-app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
+app.put('/updateNotificationsV2/:notification_id/:event_name', (req, res) => {
   const { notification_id } = req.params;
   const {
       notification_text,
@@ -1540,7 +1540,7 @@ app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
 
 // Route for calling the updateNotificationsSendToUsers() using stored procedure
 
-app.put('/updateNotificationsSendToUsers/:user_id/:notification_id', (req, res) => {
+app.put('/updateNotificationsSendToUsersV2/:user_id/:notification_id', (req, res) => {
   const { user_id, notification_id } = req.params;
   const { priority } = req.body;
 
@@ -1565,7 +1565,7 @@ app.put('/updateNotificationsSendToUsers/:user_id/:notification_id', (req, res) 
 
 // Route for calling the updateUsersRegisterForEvents() using stored procedure
 
-app.put('/updateUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
+app.put('/updateUsersRegisterForEventsV2/:user_id/:event_name', (req, res) => {
   const { user_id, event_name } = req.params;
   const { registration_date } = req.body;
 
@@ -1590,7 +1590,7 @@ app.put('/updateUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
 
 // Route for calling the updateEventsFundedBySponsors() using stored procedure
 
-app.put('/updateEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) => {
+app.put('/updateEventsFundedBySponsorsV2/:event_name/:sponsor_name', (req, res) => {
   const { event_name, sponsor_name } = req.params;
   const { sponsorship_amount, sponsorship_date } = req.body;
 
@@ -1616,7 +1616,7 @@ app.put('/updateEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) =>
 
 // Route for calling the updateEventsOrganisedByOrganisers() using stored procedure
 
-app.put('/updateEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, res) => {
+app.put('/updateEventsOrganisedByOrganisersV2/:event_name/:organiser_name', (req, res) => {
   const { event_name, organiser_name } = req.params;
   const { organiser_role } = req.body;
 
