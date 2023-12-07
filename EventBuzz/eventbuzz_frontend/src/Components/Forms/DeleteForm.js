@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const DeleteForm = ({ tableData, onDelete, activeTable }) => {
   const [formData, setFormData] = useState({});
+  const [primaryKeyOptions, setPrimaryKeyOptions] = useState({});
 
   const determinePrimaryKeys = (tableName) => {
     // Map table names to their respective primary key field(s)
@@ -25,6 +26,23 @@ const DeleteForm = ({ tableData, onDelete, activeTable }) => {
     return primaryKeysMap[tableName] || [];
   };
 
+  useEffect(() => {
+    const primaryKeys = determinePrimaryKeys(activeTable);
+
+    // Fetch data for the active table
+    fetch(`http://localhost:4000/get${activeTable}`)
+      .then(response => response.json())
+      .then(data => {
+        primaryKeys.forEach(key => {
+          setPrimaryKeyOptions(prevOptions => ({
+            ...prevOptions,
+            [key]: data.map(item => item[key])
+          }));
+        });
+      })
+      .catch(error => console.error(`Error fetching data from ${activeTable}:`, error));
+  }, [activeTable]);
+
   const handleInputChange = (columnName, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -39,28 +57,45 @@ const DeleteForm = ({ tableData, onDelete, activeTable }) => {
 
   const primaryKeys = determinePrimaryKeys(activeTable);
 
+  const renderInputField = (column) => {
+    if (primaryKeys.includes(column) && primaryKeyOptions[column]) {
+      return (
+        <select
+          id={column}
+          name={column}
+          value={formData[column] || ""}
+          onChange={(e) => handleInputChange(column, e.target.value)}
+        >
+          <option value="">Select an option</option>
+          {primaryKeyOptions[column].map(option => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      );
+    }
+
+    // Default input field for other types
+    return (
+      <input
+        type="text"
+        id={column}
+        name={column}
+        value={formData[column] || ""}
+        onChange={(e) => handleInputChange(column, e.target.value)}
+      />
+    );
+  };
+
   return (
     <form>
-      {tableData.map((column) => {
-        // Render only the primary key fields
-        if (primaryKeys.includes(column)) {
-          return (
-            <div key={column}>
-              <label htmlFor={column}>
-                {column.replace("_", " ").replace("_", " ").replace("_", " ")}:{" "}
-              </label>
-              <input
-                type={column.toLowerCase().includes("date") ? "date" : "text"}
-                id={column}
-                name={column}
-                value={formData[column] || ""}
-                onChange={(e) => handleInputChange(column, e.target.value)}
-              />
-            </div>
-          );
-        }
-        return null;
-      })}
+      {primaryKeys.map((column) => (
+        <div key={column}>
+          <label htmlFor={column}>{column.replace(/_/g, " ")}</label>
+          {renderInputField(column)}
+        </div>
+      ))}
       <button type="button" onClick={handleDelete}>
         Delete Data
       </button>
