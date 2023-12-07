@@ -227,8 +227,8 @@ VALUES
 -- SELECT * FROM UsersRegisterForEvents;
 -- SELECT * FROM EventsFundedBySponsors;
 -- SELECT * FROM EventsOrganisedByOrganisers;
--- select * from EventBuzz.ErrorLog;
--- select * from EventBuzz.UserLog;
+-- select * from EventBuzzAuditTables.ErrorLog;
+-- select * from EventBuzzAuditTables.UserLog;
 
 
 -- Truncate child tables first
@@ -250,8 +250,8 @@ VALUES
 -- DELETE FROM `EventBuzz`.Sponsors;
 -- DELETE FROM `EventBuzz`.Organisers;
 -- DELETE FROM `EventBuzz`.Notifications;
--- DELETE FROM EventBuzz.ErrorLog;
--- DELETE FROM EventBuzz.UserLog;
+-- DELETE FROM `EventBuzzAuditTables`.ErrorLog;
+-- DELETE FROM `EventBuzzAuditTables`.UserLog;
 
 -- Drop all tables
 
@@ -260,8 +260,8 @@ VALUES
 -- DROP TABLE IF EXISTS `EventBuzz`.EventsFundedBySponsors;
 -- DROP TABLE IF EXISTS `EventBuzz`.EventsOrganisedByOrganisers;
 
--- DROP TABLE IF EXISTS EventBuzz.ErrorLog;
--- DROP TABLE IF EXISTS EventBuzz.UserLog;
+-- DROP TABLE IF EXISTS EventBuzzAuditTables.ErrorLog;
+-- DROP TABLE IF EXISTS EventBuzzAuditTables.UserLog;
 -- DROP TABLE IF EXISTS `EventBuzz`.Tickets;
 -- DROP TABLE IF EXISTS `EventBuzz`.Reviews;
 -- DROP TABLE IF EXISTS `EventBuzz`.Orders;

@@ -11,7 +11,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_sponsorship_insert', 'Error occurred',CONCAT('sponsor_name: ', NEW.sponsor_name, ', sponsorship_amount: ', NEW.sponsorship_amount), NEW.event_name);
     END;
 
@@ -29,7 +29,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_sponsorship_update', 'Error occurred',CONCAT('sponsor_name: ', NEW.sponsor_name, ', sponsorship_amount: ', NEW.sponsorship_amount), NEW.event_name);
     END;
     UPDATE Sponsors
@@ -46,7 +46,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_sponsorship_delete', 'Error occurred',CONCAT('sponsor_name: ', OLD.sponsor_name, ', sponsorship_amount: ', OLD.sponsorship_amount), OLD.event_name);
     END;
     UPDATE Sponsors
@@ -64,7 +64,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_ticket_insert', 'Error occurred',CONCAT('ticket_id' + NEW.ticket_id + 'ticket_price: ', NEW.ticket_price, ', ticket_quantity: ', NEW.ticket_quantity), NEW.event_name);
     END;
     UPDATE Orders
@@ -82,7 +82,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_ticket_update', 'Error occurred',CONCAT('ticket_id' + NEW.ticket_id + 'ticket_price: ', NEW.ticket_price, ', ticket_quantity: ', NEW.ticket_quantity), NEW.event_name);
     END;
     UPDATE Orders
@@ -100,7 +100,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context, event_name)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context, event_name)
         VALUES ('after_ticket_delete', 'Error occurred',CONCAT('ticket_id' + OLD.ticket_id + 'ticket_price: ', OLD.ticket_price, ', ticket_quantity: ', OLD.ticket_quantity), OLD.event_name);
     END;
     UPDATE Orders
@@ -119,7 +119,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_user_insert', 'Error occurred',CONCAT('user_id: ', NEW.user_id, ', user_name: ', NEW.username));
     END;
 END$$
@@ -134,7 +134,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_user_update', 'Error occurred',CONCAT('user_id: ', NEW.user_id, ', user_name: ', NEW.username));
     END;
 END$$
@@ -149,7 +149,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_user_delete', 'Error occurred',CONCAT('user_id: ', OLD.user_id, ', user_name: ', OLD.username));
     END;
 END$$
@@ -165,7 +165,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_eventcategory_insert', 'Error occurred',CONCAT('category_name: ', NEW.category_name));
     END;
 END$$
@@ -180,7 +180,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_eventcategory_update', 'Error occurred',CONCAT('category_name: ', NEW.category_name));
     END;
 END$$
@@ -195,7 +195,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_eventcategory_delete', 'Error occurred',CONCAT('category_name: ', OLD.category_name));
     END;
 END$$
@@ -211,7 +211,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_venue_insert', 'Error occurred',CONCAT('venue_name: ', NEW.venue_name));
     END;
 END$$
@@ -225,7 +225,7 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_venue_update', 'Error occurred',CONCAT('venue_name: ', NEW.venue_name));
     END;
 END$$
@@ -239,11 +239,11 @@ FOR EACH ROW
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        INSERT INTO EventBuzz.ErrorLog (error_source, error_message, error_context)
+        INSERT INTO EventBuzzAuditTables.ErrorLog (error_source, error_message, error_context)
         VALUES ('after_venue_delete', 'Error occurred',CONCAT('venue_name: ', OLD.venue_name));
     END;
 END$$
 DELIMITER ;
 
--- select * from `EventBuzz`.`ErrorLog`;
--- show TRIGGERS;
+-- select * from EventBuzzAuditTables.ErrorLog;
+show TRIGGERS;
