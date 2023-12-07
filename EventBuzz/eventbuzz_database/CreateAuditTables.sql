@@ -5,6 +5,7 @@ CREATE DATABASE IF NOT EXISTS EventBuzzAuditTables;
 USE EventBuzzAuditTables;
 
 -- Create the errorlog table
+-- DROP TABLE IF EXISTS EventBuzzAuditTables.ErrorLog;
 CREATE TABLE IF NOT EXISTS ErrorLog (
     error_id INT AUTO_INCREMENT PRIMARY KEY,
     error_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -16,12 +17,12 @@ CREATE TABLE IF NOT EXISTS ErrorLog (
     additional_info TEXT              -- Any additional information
 );
 
+-- DROP TABLE IF EXISTS EventBuzzAuditTables.UserLog;
 CREATE TABLE IF NOT EXISTS UserLog (
     log_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,                    -- ID of the user performing the action
-    action_type VARCHAR(255),       -- Type of action (e.g., 'login', 'logout', 'registration')
+    general_id VARCHAR(255),              -- General ID for storing primary key from various tables
+    action_type VARCHAR(255),             -- Type of action (e.g., 'login', 'logout', 'registration')
     action_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, -- When the action occurred
-    details TEXT,                   -- Additional details about the action
-    FOREIGN KEY (user_id) REFERENCES EventBuzz.Users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+    details TEXT                          -- Additional details about the action
 );
 
