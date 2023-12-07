@@ -232,6 +232,7 @@ const Content = ({ activeTable }) => {
 
           {formType === "add" && (
             <AddForm
+              currentTable={activeTable}
               tableData={Object.keys(tableData[0])}
               onAdd={handleAddData}
             />
@@ -245,6 +246,7 @@ const Content = ({ activeTable }) => {
           )}
           {formType === "update" && (
             <UpdateForm
+              currentTable={activeTable}
               tableData={Object.keys(tableData[0])}
               onUpdate={handleUpdateData}
               primaryKeys={determinePrimaryKeys(activeTable)}
