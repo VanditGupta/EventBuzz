@@ -10,7 +10,7 @@ app.use(express.json());
 const DB_HOST = "localhost";
 const DB_NAME = "EventBuzz";
 const DB_USER = "root";
-const DB_PASSWORD = "Root123!";
+const DB_PASSWORD = "Gargi@2000";
 
 // MySQL Database Connection
 const connection = mysql.createConnection({
