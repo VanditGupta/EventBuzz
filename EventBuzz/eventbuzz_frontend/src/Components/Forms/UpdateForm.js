@@ -5,7 +5,7 @@ const UpdateForm = ({ tableData, onUpdate, primaryKeys }) => {
   const [errors, setErrors] = useState({});
 
   // Fields that should be integers
-  const integerFields = ["street_no", "unit_no", "zip_code", "max_capacity", "ticket_quantity"];
+  const integerFields = ["contact_phone", "street_no", "unit_no", "zip_code", "max_capacity", "ticket_quantity"];
 
   // Fields that can be numeric (integer or float)
   const numericFields = ["total_amount", "ticket_price", "sponsorship_amount"];
