@@ -44,6 +44,7 @@ const getTableDetails = (req, res, tableName) => {
       }
       res.json(results);
   });
+  
 };
 
 // Function to insert data into any table dynamically
