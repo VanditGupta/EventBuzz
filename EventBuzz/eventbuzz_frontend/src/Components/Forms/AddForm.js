@@ -149,7 +149,7 @@ const AddForm = ({ currentTable, tableData, onAdd }) => {
   const renderInputField = (column) => {
     // Render dropdown for foreign key fields where appropriate
     if (shouldRenderDropdown(column)) {
-      let options = [];
+      let options = [{ value: "", label: "None" }];
       if (column === 'category_name') {
         options = eventCategories;
       } else if (column === 'venue_name') {
@@ -176,9 +176,10 @@ const AddForm = ({ currentTable, tableData, onAdd }) => {
         <select
           id={column}
           name={column}
-          value={formData[column] || ""}
+          value={formData[column] || ""} // Set value to an empty string ""
           onChange={(e) => handleInputChange(column, e.target.value)}
         >
+          <option value="">Select an option</option> {/* Add an empty option */}
           {options.map(option => (
             <option key={option.value || option} value={option.value || option}>
               {option.label || option}
@@ -197,8 +198,11 @@ const AddForm = ({ currentTable, tableData, onAdd }) => {
           value={formData[column] || ""}
           onChange={(e) => handleInputChange(column, e.target.value)}
         >
+          <option value="">Select an option</option> {/* Add an empty option */}
           {enumFields[column].map(option => (
-            <option key={option} value={option}>{option}</option>
+            <option key={option} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       );

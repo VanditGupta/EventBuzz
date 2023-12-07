@@ -172,6 +172,7 @@ const UpdateForm = ({ currentTable, tableData, onUpdate, primaryKeys }) => {
           value={formData[column] || ""}
           onChange={(e) => handleInputChange(column, e.target.value)}
         >
+          <option value="">Select an option</option> {/* Add an empty option */}
           {options.map(option => (
             <option key={option.value || option} value={option.value || option}>
               {option.label || option}
@@ -189,8 +190,11 @@ const UpdateForm = ({ currentTable, tableData, onUpdate, primaryKeys }) => {
           value={formData[column] || ""}
           onChange={(e) => handleInputChange(column, e.target.value)}
         >
+          <option value="">Select an option</option> {/* Add an empty option */}
           {enumFields[column].map(option => (
-            <option key={option} value={option}>{option}</option>
+            <option key={option} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       );
