@@ -1,6 +1,6 @@
 USE EventBuzz;
 
--- INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, phone_number, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
+-- INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, contact_phone, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
 -- VALUES 
 -- ('test', 'johndoe@sasadas.com', 'dssa', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active');
 
@@ -17,7 +17,7 @@ USE EventBuzz;
 
 
 -- Insert data into Users table
-INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, phone_number, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
+INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, contact_phone, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
 VALUES 
 ('johndoe', 'johndoe@example.com', 'hashed_password', 'John', 'Doe', '1990-01-01', 'male', '1234567890', '123', 'Main St', '1', 'Anytown', 'Anystate', '12345', 'Country', 'url_to_picture', 'user', 'active'),
 ('vandit', 'vandit@example.com', 'hashed_pwd', 'Vandit','Gupta', '1999-02-22', 'male', '1234567890', '123', 'Washington St', '3', 'town', 'state', '02210', 'USA', 'url', 'user', 'active'),
@@ -115,18 +115,18 @@ VALUES
 (4, 'Loved the indie films, great selection.', '2023-08-31', 10, 'Indie Film Nights');
 
 -- Insert data into Sponsors table
-INSERT INTO Sponsors (sponsor_name, description, website_url, logo_url, contact_email, contact_phone, total_sponsorship_amount)
+INSERT INTO Sponsors (sponsor_name, description, website_url, logo_url, contact_email, contact_phone)
 VALUES 
-('Sponsor Inc', 'Leading Event Sponsor', 'https://sponsorinc.com', 'url_to_logo', 'info@sponsorinc.com', '1231231234', 10000.00),
-('Tech Giants', 'Technology and Innovation Leaders', 'https://techgiants.com', 'url_to_techgiants_logo', 'contact@techgiants.com', '2342342345', 15000.00),
-('HealthFirst', 'Healthcare and Wellness Sponsor', 'https://healthfirst.com', 'url_to_healthfirst_logo', 'info@healthfirst.com', '3453453456', 8000.00),
-('EduMinds', 'Education and Learning Sponsor', 'https://eduminds.com', 'url_to_eduminds_logo', 'support@eduminds.com', '4564564567', 12000.00),
-('Green Earth', 'Eco-friendly Initiatives and Sustainability', 'https://greenearth.com', 'url_to_greenearth_logo', 'green@earth.com', '5675675678', 9000.00),
-('Foodie Heaven', 'Culinary Arts and Food Festivals', 'https://foodieheaven.com', 'url_to_foodieheaven_logo', 'yum@foodieheaven.com', '6786786789', 7000.00),
-('BizNetwork', 'Business Networking and Corporate Events', 'https://biznetwork.com', 'url_to_biznetwork_logo', 'connect@biznetwork.com', '7897897890', 11000.00),
-('Sportify', 'Sports Events and Athletic Sponsor', 'https://sportify.com', 'url_to_sportify_logo', 'sports@sportify.com', '8908908901', 9500.00),
-('Artistic Minds', 'Supporting Arts and Theatre', 'https://artisticminds.com', 'url_to_artisticminds_logo', 'creativity@artisticminds.com', '9019019012', 8500.00),
-('Family Fun Time', 'Family and Community Events', 'https://familyfuntime.com', 'url_to_familyfuntime_logo', 'family@funtime.com', '0120120123', 6000.00);
+('Sponsor Inc', 'Leading Event Sponsor', 'https://sponsorinc.com', 'url_to_logo', 'info@sponsorinc.com', '1231231234'),
+('Tech Giants', 'Technology and Innovation Leaders', 'https://techgiants.com', 'url_to_techgiants_logo', 'contact@techgiants.com', '2342342345'),
+('HealthFirst', 'Healthcare and Wellness Sponsor', 'https://healthfirst.com', 'url_to_healthfirst_logo', 'info@healthfirst.com', '3453453456'),
+('EduMinds', 'Education and Learning Sponsor', 'https://eduminds.com', 'url_to_eduminds_logo', 'support@eduminds.com', '4564564567'),
+('Green Earth', 'Eco-friendly Initiatives and Sustainability', 'https://greenearth.com', 'url_to_greenearth_logo', 'green@earth.com', '5675675678'),
+('Foodie Heaven', 'Culinary Arts and Food Festivals', 'https://foodieheaven.com', 'url_to_foodieheaven_logo', 'yum@foodieheaven.com', '6786786789'),
+('BizNetwork', 'Business Networking and Corporate Events', 'https://biznetwork.com', 'url_to_biznetwork_logo', 'connect@biznetwork.com', '7897897890'),
+('Sportify', 'Sports Events and Athletic Sponsor', 'https://sportify.com', 'url_to_sportify_logo', 'sports@sportify.com', '8908908901'),
+('Artistic Minds', 'Supporting Arts and Theatre', 'https://artisticminds.com', 'url_to_artisticminds_logo', 'creativity@artisticminds.com', '9019019012'),
+('Family Fun Time', 'Family and Community Events', 'https://familyfuntime.com', 'url_to_familyfuntime_logo', 'family@funtime.com', '0120120123');
 
 -- Insert data into Organisers table
 INSERT INTO Organisers (organiser_name, description, logo_url, contact_email, contact_phone)
@@ -227,49 +227,57 @@ VALUES
 -- SELECT * FROM UsersRegisterForEvents;
 -- SELECT * FROM EventsFundedBySponsors;
 -- SELECT * FROM EventsOrganisedByOrganisers;
--- select * from EventBuzzAudit.ErrorLog;
--- select * from EventBuzzAudit.UserLog;
+-- select * from EventBuzz.ErrorLog;
+-- select * from EventBuzz.UserLog;
 
 
 -- Truncate child tables first
 
--- DELETE FROM NotificationsSendToUsers;
--- DELETE FROM UsersRegisterForEvents;
--- DELETE FROM EventsFundedBySponsors;
--- DELETE FROM EventsOrganisedByOrganisers;
+-- DELETE FROM `EventBuzz`.NotificationsSendToUsers;
+-- DELETE FROM `EventBuzz`.UsersRegisterForEvents;
+-- DELETE FROM `EventBuzz`.EventsFundedBySponsors;
+-- DELETE FROM `EventBuzz`.EventsOrganisedByOrganisers;
+-- DELETE FROM `EventBuzz`.Tickets;
+-- DELETE FROM `EventBuzz`.Reviews;
+-- DELETE FROM `EventBuzz`.Orders;
 
--- DELETE FROM Tickets;
--- DELETE FROM Reviews;
+--  Then truncate parent tables
 
--- DELETE FROM Orders;
-
--- Then truncate parent tables
--- DELETE FROM Users;
--- DELETE FROM Events;
--- DELETE FROM EventCategories;
--- DELETE FROM Venues;
--- DELETE FROM Sponsors;
--- DELETE FROM Organisers;
--- DELETE FROM Notifications;
-
+-- DELETE FROM `EventBuzz`.Users;
+-- DELETE FROM `EventBuzz`.Events;
+-- DELETE FROM `EventBuzz`.EventCategories;
+-- DELETE FROM `EventBuzz`.Venues;
+-- DELETE FROM `EventBuzz`.Sponsors;
+-- DELETE FROM `EventBuzz`.Organisers;
+-- DELETE FROM `EventBuzz`.Notifications;
+-- DELETE FROM EventBuzz.ErrorLog;
+-- DELETE FROM EventBuzz.UserLog;
 
 -- Drop all tables
 
--- DROP TABLE IF EXISTS NotificationsSendToUsers;
--- DROP TABLE IF EXISTS UsersRegisterForEvents;
--- DROP TABLE IF EXISTS EventsFundedBySponsors;
--- DROP TABLE IF EXISTS EventsOrganisedByOrganisers;
+-- DROP TABLE IF EXISTS `EventBuzz`.NotificationsSendToUsers;
+-- DROP TABLE IF EXISTS `EventBuzz`.UsersRegisterForEvents;
+-- DROP TABLE IF EXISTS `EventBuzz`.EventsFundedBySponsors;
+-- DROP TABLE IF EXISTS `EventBuzz`.EventsOrganisedByOrganisers;
 
--- DROP TABLE IF EXISTS EventBuzzAudit.ErrorLog;
--- DROP TABLE IF EXISTS EventBuzzAudit.UserLog;
--- DROP TABLE IF EXISTS Tickets;
--- DROP TABLE IF EXISTS Reviews;
--- DROP TABLE IF EXISTS Orders;
--- DROP TABLE IF EXISTS Notifications;
--- DROP TABLE IF EXISTS Users;
--- DROP TABLE IF EXISTS Events;
--- DROP TABLE IF EXISTS EventCategories;
--- DROP TABLE IF EXISTS Venues;
--- DROP TABLE IF EXISTS Sponsors;
--- DROP TABLE IF EXISTS Organisers;
+-- DROP TABLE IF EXISTS EventBuzz.ErrorLog;
+-- DROP TABLE IF EXISTS EventBuzz.UserLog;
+-- DROP TABLE IF EXISTS `EventBuzz`.Tickets;
+-- DROP TABLE IF EXISTS `EventBuzz`.Reviews;
+-- DROP TABLE IF EXISTS `EventBuzz`.Orders;
+-- DROP TABLE IF EXISTS `EventBuzz`.Notifications;
+-- DROP TABLE IF EXISTS `EventBuzz`.Users;
+-- DROP TABLE IF EXISTS `EventBuzz`.Events;
+-- DROP TABLE IF EXISTS `EventBuzz`.EventCategories;
+-- DROP TABLE IF EXISTS `EventBuzz`.Venues;
+-- DROP TABLE IF EXISTS `EventBuzz`.Sponsors;
+-- DROP TABLE IF EXISTS `EventBuzz`.Organisers;
 
+-- select * from EventsFundedBySponsors where sponsor_name = 'Artistic Minds';
+-- select* FROM `Sponsors` where sponsor_name = 'Artistic Minds';
+
+-- update `EventsFundedBySponsors` SET sponsorship_amount = 100 WHERE sponsor_name = 'Artistic Minds';
+-- INSERT INTO EventsFundedBySponsors (event_name, sponsor_name, sponsorship_amount, sponsorship_date)
+-- VALUES ('Educational Workshop Series', 'Artistic Minds', 6000.00, '2023-07-20')
+
+-- 11500 - Original Value

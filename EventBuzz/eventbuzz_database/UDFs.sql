@@ -63,14 +63,14 @@ END;
 
 -- Call the CalculateAge function
 
-select CalculateAge('1999-02-22');
+-- select CalculateAge('1999-02-22');
 
 -- select CalculateAge('2900-01-01');
 
 
 -- Call the CalculateDuration function
 
-select CalculateDuration('2021-01-01 10:00:00', '2021-01-01 12:00:00');
+-- select CalculateDuration('2021-01-01 10:00:00', '2021-01-01 12:00:00');
 
 -- select CalculateDuration('2021-01-01 10:00:00', '2021-01-01 09:00:00');
 -- test

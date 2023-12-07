@@ -1,9 +1,5 @@
--- CreateAuditTables.sql creates the audit tables for the EventBuzzAudit Schema
-
-CREATE DATABASE IF NOT EXISTS EventBuzzAudit;
-USE EventBuzzAudit;
-
--- DROP DATABASE EventBuzzAudit;
+-- CreateAuditTables.sql creates the audit tables in the EventBuzz Schema
+USE EventBuzz;
 
 -- Create the errorlog table
 CREATE TABLE IF NOT EXISTS ErrorLog (

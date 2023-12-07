@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Users (
     last_name VARCHAR(255),
     date_of_birth VARCHAR(255),
     sex ENUM('male', 'female', 'other') NOT NULL DEFAULT 'female',
-    phone_number VARCHAR(20),
+    contact_phone VARCHAR(20),
     street_no INT,
     street_name VARCHAR(255),
     unit_no INT,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_date VARCHAR(255),
     payment_type ENUM('credit_card', 'debit_card', 'paypal', 'other') NOT NULL DEFAULT 'credit_card',
     payment_status ENUM('paid', 'pending', 'failed') NOT NULL DEFAULT 'pending',
-    total_amount DOUBLE NOT NULL DEFAULT 0 CHECK (total_amount >= 0),
+    total_amount DOUBLE DEFAULT 0 CHECK (total_amount >= 0),
     user_id INT,
     event_name VARCHAR(255),
     FOREIGN KEY (user_id)

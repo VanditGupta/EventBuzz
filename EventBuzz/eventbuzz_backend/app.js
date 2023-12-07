@@ -44,38 +44,8 @@ const getTableDetails = (req, res, tableName) => {
       }
       res.json(results);
   });
+  
 };
-
-// Function to insert data into any table dynamically
-
-// const requiredUserFields = ['username', 'email', 'password', 'sex', 'role', 'status'];
-
-// const executeInsertQuery = (req, res, tableName, data) => {
-//   // Check for required fields if inserting into Users table
-//   if (tableName === 'Users') {
-//     const missingFields = requiredUserFields.filter(field => !data.hasOwnProperty(field));
-//     if (missingFields.length > 0) {
-//       res.status(400).json({ error: `Missing required fields: ${missingFields.join(', ')}` });
-//       return;
-//     }
-//   }
-
-//   const columns = Object.keys(data).join(", ");
-//   const values = Object.values(data)
-//       .map(value => mysql.escape(value))
-//       .join(", ");
-
-//   const query = `INSERT INTO ${tableName} (${columns}) VALUES (${values})`;
-//   console.log(query);
-//   connection.query(query, (err, result) => {
-//       if (err) {
-//           console.error(`Error executing SQL query for ${tableName}:`, err.message);
-//           res.status(500).json({ error: `Failed to execute SQL query for ${tableName}. ${err.message}` });
-//           return;
-//       }
-//       res.status(200).json({ message: `Row inserted in ${tableName}.`, insertedId: result.insertId });
-//   });
-// };
 
 // Function to insert data into any table dynamically
 const executeInsertQuery = (req, res, tableName, data) => {
@@ -240,72 +210,72 @@ app.post("/insertIntoEventsOrganisedByOrganisers", (req, res) => {
 // Routes for getting data from EventBuzz Schema
 
 // Route for getting data from Users table
-app.get("/getUsers", (req, res) =>
+app.get("/getUsersV2", (req, res) =>
   getTableDetails(req, res, "Users")
 );
 
 // Route for getting data from EventCategories table
-app.get("/getEventCategories", (req, res) =>
+app.get("/getEventCategoriesV2", (req, res) =>
   getTableDetails(req, res, "EventCategories")
 );
 
 // Route for getting data from Venues table
-app.get("/getVenues", (req, res) =>
+app.get("/getVenuesV2", (req, res) =>
   getTableDetails(req, res, "Venues")
 );
 
 // Route for getting data from Events table
-app.get("/getEvents", (req, res) =>
+app.get("/getEventsV2", (req, res) =>
   getTableDetails(req, res, "Events")
 );
 
 // Route for getting data from Orders table
-app.get("/getOrders", (req, res) =>
+app.get("/getOrdersV2", (req, res) =>
   getTableDetails(req, res, "Orders")
 );
 
 // Route for getting data from Tickets table
-app.get("/getTickets", (req, res) =>
+app.get("/getTicketsV2", (req, res) =>
   getTableDetails(req, res, "Tickets")
 );
 
 // Route for getting data from Reviews table
-app.get("/getReviews", (req, res) =>
+app.get("/getReviewsV2", (req, res) =>
   getTableDetails(req, res, "Reviews")
 );
 
 // Route for getting data from Sponsors table
-app.get("/getSponsors", (req, res) =>
+app.get("/getSponsorsV2", (req, res) =>
   getTableDetails(req, res, "Sponsors")
 );
 
 // Route for getting data from Organisers table
-app.get("/getOrganisers", (req, res) =>
+app.get("/getOrganisersV2", (req, res) =>
   getTableDetails(req, res, "Organisers")
 );
 
 // Route for getting data from Notifications table
-app.get("/getNotifications", (req, res) =>
+app.get("/getNotificationsV2", (req, res) =>
   getTableDetails(req, res, "Notifications")
 );
 
 // Route for getting data from NotificationsSendToUsers table
-app.get("/getNotificationsSendToUsers", (req, res) =>
+app.get("/getNotificationsSendToUsersV2", (req, res) =>
   getTableDetails(req, res, "NotificationsSendToUsers")
 );
 
 // Route for getting data from UsersRegisterForEvents table
-app.get("/getUsersRegisterForEvents", (req, res) =>
+app.get("/getUsersRegisterForEventsV2", (req, res) =>
   getTableDetails(req, res, "UsersRegisterForEvents")
 );
 
 // Route for getting data from EventsFundedBySponsors table
-app.get("/getEventsFundedBySponsors", (req, res) =>
+app.get("/getEventsFundedBySponsorsV2", (req, res) =>
   getTableDetails(req, res, "EventsFundedBySponsors")
 );
 
 // Route for getting data from EventsOrganisedByOrganisers table
-app.get("/getEventsOrganisedByOrganisers", (req, res) =>
+app.get("/getEventsOrganisedByOrganisersV2", (req, res) =>
   getTableDetails(req, res, "EventsOrganisedByOrganisers")
 );
 
@@ -415,88 +385,1539 @@ app.put("/updateEventsOrganisedByOrganisers/:event_name/:organiser_name", (req, 
 // Delete Routes for EventBuzz Schema
 
 // Route for deleting from Users table
-app.delete("/deleteUsers/:user_id", (req, res) => {
+app.delete("/deleteUsersV2/:user_id", (req, res) => {
   const primaryKey = "user_id";
   executeDeleteQuery(req, res, "Users", primaryKey);
 });
 
 // Route for deleting from EventCategories table
-app.delete("/deleteEventCategories/:category_name", (req, res) => {
+app.delete("/deleteEventCategoriesV2/:category_name", (req, res) => {
   const primaryKey = "category_name";
   executeDeleteQuery(req, res, "EventCategories", primaryKey);
 });
 
 // Route for deleting from Venues table
-app.delete("/deleteVenues/:venue_name", (req, res) => {
+app.delete("/deleteVenuesV2/:venue_name", (req, res) => {
   const primaryKey = "venue_name";
   executeDeleteQuery(req, res, "Venues", primaryKey);
 });
 
 // Route for deleting from Events table
-app.delete("/deleteEvents/:event_name", (req, res) => {
+app.delete("/deleteEventsV2/:event_name", (req, res) => {
   const primaryKey = "event_name";
   executeDeleteQuery(req, res, "Events", primaryKey);
 });
 
 // Route for deleting from Orders table
-app.delete("/deleteOrders/:order_id", (req, res) => {
+app.delete("/deleteOrdersV2/:order_id", (req, res) => {
   const primaryKey = "order_id";
   executeDeleteQuery(req, res, "Orders", primaryKey);
 });
 
 // Route for deleting from Tickets table
-app.delete("/deleteTickets/:ticket_id", (req, res) => {
+app.delete("/deleteTicketsV2/:ticket_id", (req, res) => {
   const primaryKey = "ticket_id";
   executeDeleteQuery(req, res, "Tickets", primaryKey);
 });
 
 // Route for deleting from Reviews table with composite primary key
-app.delete("/deleteReviews/:user_id/:event_name", (req, res) => {
+app.delete("/deleteReviewsV2/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   executeDeleteQuery(req, res, "Reviews", primaryKey);
 });
 
 // Route for deleting from Sponsors table
-app.delete("/deleteSponsors/:sponsor_name", (req, res) => {
+app.delete("/deleteSponsorsV2/:sponsor_name", (req, res) => {
   const primaryKey = "sponsor_name";
   executeDeleteQuery(req, res, "Sponsors", primaryKey);
 });
 
 // Route for deleting from Organisers table
-app.delete("/deleteOrganisers/:organiser_name", (req, res) => {
+app.delete("/deleteOrganisersV2/:organiser_name", (req, res) => {
   const primaryKey = "organiser_name";
   executeDeleteQuery(req, res, "Organisers", primaryKey);
 });
 
 // Route for deleting from Notifications table with composite primary keys
-app.delete("/deleteNotifications/:notification_id/:event_name", (req, res) => {
+app.delete("/deleteNotificationsV2/:notification_id/:event_name", (req, res) => {
   const primaryKey = ["notification_id", "event_name"];
   executeDeleteQuery(req, res, "Notifications", primaryKey);
 });
 
 // Route for deleting from NotificationsSendToUsers table with composite primary keys
-app.delete("/deleteNotificationsSendToUsers/:notification_id/:user_id", (req, res) => {
+app.delete("/deleteNotificationsSendToUsersV2/:notification_id/:user_id", (req, res) => {
   const primaryKey = ["notification_id", "user_id"];
   executeDeleteQuery(req, res, "NotificationsSendToUsers", primaryKey);
 });
 
 // Route for deleting from UsersRegisterForEvents table with composite primary keys
-app.delete("/deleteUsersRegisterForEvents/:user_id/:event_name", (req, res) => {
+app.delete("/deleteUsersRegisterForEventsV2/:user_id/:event_name", (req, res) => {
   const primaryKey = ["user_id", "event_name"];
   executeDeleteQuery(req, res, "UsersRegisterForEvents", primaryKey);
 });
 
 // Route for deleting from EventsFundedBySponsors table with composite primary keys
-app.delete("/deleteEventsFundedBySponsors/:event_name/:sponsor_name", (req, res) => {
+app.delete("/deleteEventsFundedBySponsorsV2/:event_name/:sponsor_name", (req, res) => {
   const primaryKey = ["event_name", "sponsor_name"];
   executeDeleteQuery(req, res, "EventsFundedBySponsors", primaryKey);
 });
 
 // Route for deleting from EventsOrganisedByOrganisers table with composite primary keys
-app.delete("/deleteEventsOrganisedByOrganisers/:event_name/:organiser_name", (req, res) => {
+app.delete("/deleteEventsOrganisedByOrganisersV2/:event_name/:organiser_name", (req, res) => {
   const primaryKey = ["event_name", "organiser_name"];
   executeDeleteQuery(req, res, "EventsOrganisedByOrganisers", primaryKey);
 });
+
+/* ------------------------ */
+
+// Route for calling the GetUsers() using stored procedure
+
+app.get("/getUsers", (req, res) => {
+  connection.query(
+      'CALL GetUsers()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetUsers:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+});
+
+// Route for calling the GetEventCategories() using stored procedure
+
+app.get("/getEventCategories", (req, res) => {
+  connection.query(
+      'CALL GetEventCategories()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetEventCategories:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetVenues() using stored procedure
+
+app.get("/getVenues", (req, res) => {
+  connection.query(
+      'CALL GetVenues()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetVenues:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetEvents() using stored procedure
+
+app.get("/getEvents", (req, res) => {
+  connection.query(
+      'CALL GetEvents()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetEvents:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetOrders() using stored procedure
+
+app.get("/getOrders", (req, res) => {
+  connection.query(
+      'CALL GetOrders()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetOrders:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetTickets() using stored procedure
+
+app.get("/getTickets", (req, res) => {
+  connection.query(
+      'CALL GetTickets()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetTickets:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetReviews() using stored procedure
+
+app.get("/getReviews", (req, res) => {
+  connection.query(
+      'CALL GetReviews()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetReviews:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetSponsors() using stored procedure
+
+app.get("/getSponsors", (req, res) => {
+  connection.query(
+      'CALL GetSponsors()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetSponsors:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetOrganisers() using stored procedure
+
+app.get("/getOrganisers", (req, res) => {
+  connection.query(
+      'CALL GetOrganisers()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetOrganisers:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetNotifications() using stored procedure
+
+app.get("/getNotifications", (req, res) => {
+  connection.query(
+      'CALL GetNotifications()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetNotifications:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+
+// Route for calling the GetNotificationsSendToUsers() using stored procedure
+
+app.get("/getNotificationsSendToUsers", (req, res) => {
+  connection.query(
+      'CALL GetNotificationsSendToUsers()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetNotificationsSendToUsers:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+
+// Route for calling the GetUsersRegisterForEvents() using stored procedure
+
+app.get("/getUsersRegisterForEvents", (req, res) => {
+  connection.query(
+      'CALL GetUsersRegisterForEvents()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetUsersRegisterForEvents:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+
+// Route for calling the GetEventsFundedBySponsors() using stored procedure
+
+app.get("/getEventsFundedBySponsors", (req, res) => {
+  connection.query(
+      'CALL GetEventsFundedBySponsors()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetEventsFundedBySponsors:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+
+// Route for calling the GetEventsOrganisedByOrganisers() using stored procedure
+
+app.get("/getEventsOrganisedByOrganisers", (req, res) => {
+  connection.query(
+      'CALL GetEventsOrganisedByOrganisers()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetEventsOrganisedByOrganisers:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the InsertUser() using stored procedure
+
+app.post('/insertIntoUsersV2', (req, res) => {
+  const {
+      username,
+      email,
+      password,
+      first_name,
+      last_name,
+      date_of_birth,
+      sex,
+      contact_phone,
+      street_no,
+      street_name,
+      unit_no,
+      city,
+      state,
+      zip_code,
+      country,
+      profile_picture_url,
+      role,
+      status
+  } = req.body;
+
+  connection.query(
+      'CALL InsertUser(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          username,
+          email,
+          password,
+          first_name,
+          last_name,
+          date_of_birth,
+          sex,
+          contact_phone,
+          street_no,
+          street_name,
+          unit_no,
+          city,
+          state,
+          zip_code,
+          country,
+          profile_picture_url,
+          role,
+          status
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new user:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New user added successfully' });
+      }
+  );
+});
+
+// Route for calling the InsertEventCategory() using stored procedure
+
+app.post('/insertIntoEventCategoriesV2', (req, res) => {
+  const { category_name, description } = req.body;
+
+  connection.query(
+      'CALL InsertEventCategory(?, ?)',
+      [category_name, description],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new event category:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New event category added successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the InsertVenue() using stored procedure
+
+app.post('/insertIntoVenuesV2', (req, res) => {
+  const {
+      venue_name,
+      street_no,
+      street_name,
+      unit_no,
+      city,
+      state,
+      zip_code,
+      max_capacity,
+      contact_email,
+      contact_phone
+  } = req.body;
+
+  connection.query(
+      'CALL InsertVenue(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          venue_name,
+          street_no,
+          street_name,
+          unit_no,
+          city,
+          state,
+          zip_code,
+          max_capacity,
+          contact_email,
+          contact_phone
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new venue:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New venue added successfully' });
+      }
+  );
+});
+
+// Route for calling the InsertEvent() using stored procedure
+
+app.post('/insertIntoEventsV2', (req, res) => {
+  const {
+      event_name,
+      event_description,
+      event_date,
+      event_time,
+      event_status,
+      event_image_url,
+      category_name,
+      venue_name
+  } = req.body;
+
+  connection.query(
+      'CALL InsertEvent(?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          event_name,
+          event_description,
+          event_date,
+          event_time,
+          event_status,
+          event_image_url,
+          category_name,
+          venue_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new event:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New event added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertOrder() using stored procedure
+
+app.post('/insertIntoOrdersV2', (req, res) => {
+  const {
+      order_id,
+      order_date,
+      payment_type,
+      payment_status,
+      total_amount,
+      user_id,
+      event_name
+  } = req.body;
+
+  connection.query(
+      'CALL InsertOrder(?, ?, ?, ?, ?, ?, ?)',
+      [
+          order_id,
+          order_date,
+          payment_type,
+          payment_status,
+          total_amount,
+          user_id,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new order:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New order added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertTicket() using stored procedure
+
+app.post('/insertIntoTicketsV2', (req, res) => {
+  const {
+      ticket_price,
+      ticket_quantity,
+      start_sale_date,
+      end_sale_date,
+      event_name,
+      order_id
+  } = req.body;
+
+  connection.query(
+      'CALL InsertTicket(?, ?, ?, ?, ?, ?)',
+      [
+          ticket_price,
+          ticket_quantity,
+          start_sale_date,
+          end_sale_date,
+          event_name,
+          order_id
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new ticket:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New ticket added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertReview() using stored procedure
+
+app.post('/insertIntoReviewsV2', (req, res) => {
+  const {
+      rating,
+      comment,
+      review_date,
+      user_id,
+      event_name
+  } = req.body;
+
+  connection.query(
+      'CALL InsertReview(?, ?, ?, ?, ?)',
+      [
+          rating,
+          comment,
+          review_date,
+          user_id,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new review:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New review added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertSponsor() using stored procedure
+
+app.post('/insertIntoSponsorsV2', (req, res) => {
+  const {
+      sponsor_name,
+      description,
+      website_url,
+      logo_url,
+      contact_email,
+      contact_phone,
+      total_sponsorship_amount
+  } = req.body;
+
+  connection.query(
+      'CALL InsertSponsor(?, ?, ?, ?, ?, ?, ?)',
+      [
+          sponsor_name,
+          description,
+          website_url,
+          logo_url,
+          contact_email,
+          contact_phone,
+          total_sponsorship_amount
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new sponsor:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New sponsor added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertOrganiser() using stored procedure
+
+app.post('/insertIntoOrganisersV2', (req, res) => {
+  const {
+      organiser_name,
+      description,
+      logo_url,
+      contact_email,
+      contact_phone
+  } = req.body;
+
+  connection.query(
+      'CALL InsertOrganiser(?, ?, ?, ?, ?)',
+      [
+          organiser_name,
+          description,
+          logo_url,
+          contact_email,
+          contact_phone
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new organiser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New organiser added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertNotification() using stored procedure
+
+app.post('/insertIntoNotificationsV2', (req, res) => {
+  const {
+      notification_id,
+      notification_text,
+      notification_date,
+      event_name
+  } = req.body;
+
+  connection.query(
+      'CALL InsertNotification(?, ?, ?, ?)',
+      [
+          notification_id,
+          notification_text,
+          notification_date,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting new notification:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'New notification added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertNotificationSendToUsers() using stored procedure
+
+app.post('/insertIntoNotificationsSendToUsersV2', (req, res) => {
+  const {
+      user_id,
+      notification_id,
+      priority
+  } = req.body;
+
+  connection.query(
+      'CALL InsertNotificationSendToUsers(?, ?, ?)',
+      [
+          user_id,
+          notification_id,
+          priority
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting notification-user linkage:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'Notification-user linkage added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertUserRegisterForEvent() using stored procedure
+
+app.post('/insertIntoUsersRegisterForEventsV2', (req, res) => {
+  const {
+      user_id,
+      event_name,
+      registration_date
+  } = req.body;
+
+  connection.query(
+      'CALL InsertUserRegisterForEvents(?, ?, ?)',
+      [
+          user_id,
+          event_name,
+          registration_date
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting user event registration:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'User event registration added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertEventFundedBySponsor() using stored procedure
+
+app.post('/insertIntoEventsFundedBySponsorsV2', (req, res) => {
+  const {
+      event_name,
+      sponsor_name,
+      sponsorship_amount,
+      sponsorship_date
+  } = req.body;
+
+  connection.query(
+      'CALL InsertEventFundedBySponsors(?, ?, ?, ?)',
+      [
+          event_name,
+          sponsor_name,
+          sponsorship_amount,
+          sponsorship_date
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting event sponsorship:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'Event sponsorship added successfully' });
+      }
+  );
+});
+
+
+// Route for calling the InsertEventOrganisedByOrganiser() using stored procedure
+
+app.post('/insertIntoEventsOrganisedByOrganisersV2', (req, res) => {
+  const {
+      event_name,
+      organiser_name,
+      organiser_role
+  } = req.body;
+
+  connection.query(
+      'CALL InsertEventOrganisedByOrganisers(?, ?, ?)',
+      [
+          event_name,
+          organiser_name,
+          organiser_role
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error inserting event-organiser linkage:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(201).json({ message: 'Event-organiser linkage added successfully' });
+      }
+  );
+});
+
+// Route for calling the UpdateUser() using stored procedure
+
+app.put('/updateUsers/:user_id', (req, res) => {
+  const { user_id } = req.params;
+  const {
+      username,
+      email,
+      first_name,
+      last_name,
+      date_of_birth,
+      sex,
+      contact_phone,
+      street_no,
+      street_name,
+      unit_no,
+      city,
+      state,
+      zip_code,
+      country,
+      profile_picture_url,
+      role,
+      status
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateUser(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          user_id,
+          username,
+          email,
+          first_name,
+          last_name,
+          date_of_birth,
+          sex,
+          contact_phone,
+          street_no,
+          street_name,
+          unit_no,
+          city,
+          state,
+          zip_code,
+          country,
+          profile_picture_url,
+          role,
+          status
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating user:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'User updated successfully' });
+      }
+  );
+});
+
+// Route for calling the UpdateEventCategory() using stored procedure
+
+app.put('/updateEventCategories/:category_name', (req, res) => {
+  const { category_name } = req.params;
+  const { description } = req.body;
+
+  connection.query(
+      'CALL UpdateEventCategory(?, ?)',
+      [category_name, description],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating event category:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event category updated successfully' });
+      }
+  );
+});
+
+// Route for calling the UpdateVenue() using stored procedure
+
+app.put('/updateVenues/:venue_name', (req, res) => {
+  const { venue_name } = req.params;
+  const {
+      street_no,
+      street_name,
+      unit_no,
+      city,
+      state,
+      zip_code,
+      max_capacity,
+      contact_email,
+      contact_phone
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateVenue(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          venue_name,
+          street_no,
+          street_name,
+          unit_no,
+          city,
+          state,
+          zip_code,
+          max_capacity,
+          contact_email,
+          contact_phone
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating venue:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Venue updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateEvent() using stored procedure
+
+app.put('/updateEvents/:event_name', (req, res) => {
+  const { event_name } = req.params;
+  const {
+      event_description,
+      event_date,
+      event_time,
+      event_status,
+      event_image_url,
+      category_name,
+      venue_name
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateEvent(?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+          event_name,
+          event_description,
+          event_date,
+          event_time,
+          event_status,
+          event_image_url,
+          category_name,
+          venue_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating event:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateOrder() using stored procedure
+
+app.put('/updateOrders/:order_id', (req, res) => {
+  const { order_id } = req.params;
+  const {
+      order_date,
+      payment_type,
+      payment_status,
+      total_amount,
+      user_id,
+      event_name
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateOrder(?, ?, ?, ?, ?, ?, ?)',
+      [
+          order_id,
+          order_date,
+          payment_type,
+          payment_status,
+          total_amount,
+          user_id,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating order:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Order updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateTicket() using stored procedure
+
+app.put('/updateTicketsV2/:ticket_id', (req, res) => {
+  const { ticket_id } = req.params;
+  const {
+      ticket_price,
+      ticket_quantity,
+      start_sale_date,
+      end_sale_date,
+      event_name,
+      order_id
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateTicket(?, ?, ?, ?, ?)',
+      [
+          ticket_id,
+          ticket_price,
+          ticket_quantity,
+          start_sale_date,
+          end_sale_date,
+          event_name,
+          order_id
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating ticket:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Ticket updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateReview() using stored procedure
+
+app.put('/updateReviews/:user_id/:event_name', (req, res) => {
+  const { user_id, event_name } = req.params;
+  const {
+      rating,
+      comment,
+      review_date
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateReview(?, ?, ?, ?, ?)',
+      [
+          rating,
+          comment,
+          review_date,
+          user_id,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating review:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Review updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateSponsor() using stored procedure
+
+app.put('/updateSponsors/:sponsor_name', (req, res) => {
+  const { sponsor_name } = req.params;
+  const {
+      description,
+      website_url,
+      logo_url,
+      contact_email,
+      contact_phone,
+      total_sponsorship_amount
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateSponsor(?, ?, ?, ?, ?, ?, ?)',
+      [
+          sponsor_name,
+          description,
+          website_url,
+          logo_url,
+          contact_email,
+          contact_phone,
+          total_sponsorship_amount
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating sponsor:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Sponsor updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateOrganiser() using stored procedure
+
+app.put('/updateOrganisers/:organiser_name', (req, res) => {
+  const { organiser_name } = req.params;
+  const {
+      description,
+      logo_url,
+      contact_email,
+      contact_phone
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateOrganiser(?, ?, ?, ?, ?)',
+      [
+          organiser_name,
+          description,
+          logo_url,
+          contact_email,
+          contact_phone
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating organiser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Organiser updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the UpdateNotification() using stored procedure
+
+app.put('/updateNotifications/:notification_id/:event_name', (req, res) => {
+  const { notification_id } = req.params;
+  const {
+      notification_text,
+      notification_date,
+      event_name
+  } = req.body;
+
+  connection.query(
+      'CALL UpdateNotification(?, ?, ?, ?)',
+      [
+          notification_id,
+          notification_text,
+          notification_date,
+          event_name
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating notification:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Notification updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the updateNotificationsSendToUsers() using stored procedure
+
+app.put('/updateNotificationsSendToUsers/:user_id/:notification_id', (req, res) => {
+  const { user_id, notification_id } = req.params;
+  const { priority } = req.body;
+
+  connection.query(
+      'CALL UpdateNotificationSendToUsers(?, ?, ?)',
+      [
+          user_id,
+          notification_id,
+          priority
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating NotificationSendToUser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'NotificationSendToUser updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the updateUsersRegisterForEvents() using stored procedure
+
+app.put('/updateUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
+  const { user_id, event_name } = req.params;
+  const { registration_date } = req.body;
+
+  connection.query(
+      'CALL UpdateUserRegisterForEvents(?, ?, ?)',
+      [
+          user_id,
+          event_name,
+          registration_date
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating UserRegisterForEvent:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'User registration for event updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the updateEventsFundedBySponsors() using stored procedure
+
+app.put('/updateEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) => {
+  const { event_name, sponsor_name } = req.params;
+  const { sponsorship_amount, sponsorship_date } = req.body;
+
+  connection.query(
+      'CALL UpdateEventFundedBySponsors(?, ?, ?, ?)',
+      [
+          event_name,
+          sponsor_name,
+          sponsorship_amount,
+          sponsorship_date
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating EventFundedBySponsor:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event sponsorship updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the updateEventsOrganisedByOrganisers() using stored procedure
+
+app.put('/updateEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, res) => {
+  const { event_name, organiser_name } = req.params;
+  const { organiser_role } = req.body;
+
+  connection.query(
+      'CALL UpdateEventOrganisedByOrganisers(?, ?, ?)',
+      [
+          event_name,
+          organiser_name,
+          organiser_role
+      ],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating EventOrganisedByOrganiser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event organiser updated successfully' });
+      }
+  );
+});
+
+
+// Route for calling the DeleteUser() using stored procedure
+
+app.delete('/deleteUsers/:user_id', (req, res) => {
+  const { user_id } = req.params;
+
+  connection.query(
+      'CALL DeleteUser(?)',
+      [user_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting user:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'User deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteEventCategory() using stored procedure
+
+app.delete('/deleteEventCategories/:category_name', (req, res) => {
+  const { category_name } = req.params;
+
+  connection.query(
+      'CALL DeleteEventCategory(?)',
+      [category_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting event category:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event category deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteVenue() using stored procedure
+
+app.delete('/deleteVenues/:venue_name', (req, res) => {
+  const { venue_name } = req.params;
+
+  connection.query(
+      'CALL DeleteVenue(?)',
+      [venue_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting venue:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Venue deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteEvent() using stored procedure
+
+app.delete('/deleteEvents/:event_name', (req, res) => {
+  const { event_name } = req.params;
+
+  connection.query(
+      'CALL DeleteEvent(?)',
+      [event_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting event:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteOrder() using stored procedure
+
+app.delete('/deleteOrders/:order_id', (req, res) => {
+  const { order_id } = req.params;
+
+  connection.query(
+      'CALL DeleteOrder(?)',
+      [order_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting order:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Order deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteTicket() using stored procedure
+
+app.delete('/deleteTickets/:ticket_id', (req, res) => {
+  const { ticket_id } = req.params;
+
+  connection.query(
+      'CALL DeleteTicket(?)',
+      [ticket_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting ticket:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Ticket deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteReview() using stored procedure
+
+app.delete('/deleteReviews/:user_id/:event_name', (req, res) => {
+  const { user_id, event_name } = req.params;
+
+  connection.query(
+      'CALL DeleteReview(?, ?)',
+      [user_id, event_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting review:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Review deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteSponsor() using stored procedure
+
+app.delete('/deleteSponsors/:sponsor_name', (req, res) => {
+  const { sponsor_name } = req.params;
+
+  connection.query(
+      'CALL DeleteSponsor(?)',
+      [sponsor_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting sponsor:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Sponsor deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteOrganiser() using stored procedure
+
+app.delete('/deleteOrganisers/:organiser_name', (req, res) => {
+  const { organiser_name } = req.params;
+
+  connection.query(
+      'CALL DeleteOrganiser(?)',
+      [organiser_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting organiser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Organiser deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteNotification() using stored procedure
+
+app.delete('/deleteNotifications/:notification_id/:event_name', (req, res) => {
+  const { notification_id } = req.params;
+
+  connection.query(
+      'CALL DeleteNotification(?)',
+      [notification_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting notification:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Notification deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteNotificationSendToUsers() using stored procedure
+
+app.delete('/deleteNotificationsSendToUsers/:user_id/:notification_id', (req, res) => {
+  const { user_id, notification_id } = req.params;
+
+  connection.query(
+      'CALL DeleteNotificationSendToUsers(?, ?)',
+      [user_id, notification_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting NotificationSendToUser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'NotificationSendToUser deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteUserRegisterForEvent() using stored procedure
+
+app.delete('/deleteUsersRegisterForEvents/:user_id/:event_name', (req, res) => {
+  const { user_id, event_name } = req.params;
+
+  connection.query(
+      'CALL DeleteUserRegisterForEvents(?, ?)',
+      [user_id, event_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting UserRegisterForEvent:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'User registration for event deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteEventFundedBySponsor() using stored procedure
+
+app.delete('/deleteEventsFundedBySponsors/:event_name/:sponsor_name', (req, res) => {
+  const { event_name, sponsor_name } = req.params;
+
+  connection.query(
+      'CALL DeleteEventFundedBySponsors(?, ?)',
+      [event_name, sponsor_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting EventFundedBySponsor:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event sponsorship deleted successfully' });
+      }
+  );
+}
+);
+
+// Route for calling the DeleteEventOrganisedByOrganiser() using stored procedure
+
+app.delete('/deleteEventsOrganisedByOrganisers/:event_name/:organiser_name', (req, res) => {
+  const { event_name, organiser_name } = req.params;
+
+  connection.query(
+      'CALL DeleteEventOrganisedByOrganisers(?, ?)',
+      [event_name, organiser_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error deleting EventOrganisedByOrganiser:', err);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.status(200).json({ message: 'Event organiser deleted successfully' });
+      }
+  );
+}
+);
 
 // Server Initialization
 const PORT = process.env.PORT || 4000;
