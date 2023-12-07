@@ -60,6 +60,12 @@ form div {
   margin-bottom: 20px;
 }
 
+
+.disabled:hover {
+  cursor:not-allowed !important;
+  background: #343a40 !important;
+}
+
 label {
   display: block;
   margin-bottom: 10px;

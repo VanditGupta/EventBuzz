@@ -5,32 +5,30 @@ const AddForm = ({ tableData, onAdd }) => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
 
-  const integerFields = [
-    "contact_phone",
-    "street_no",
-    "unit_no",
-    "zip_code",
-    "max_capacity",
-    "ticket_quantity"
-  ];
+  // Fields that should be integers
+  const integerFields = ["contact_phone","street_no", "unit_no", "zip_code", "max_capacity", "ticket_quantity"];
 
-  const numericFields = [
-    "total_amount",
-    "ticket_price",
-    "sponsorship_amount"
-  ];
+  // Fields that can be numeric (integer or float)
+  const numericFields = ["total_amount", "ticket_price", "sponsorship_amount"];
+
+  // ENUM fields with their options
+  const enumFields = {
+    sex: ['male', 'female', 'other'],
+    role: ['admin', 'user', 'organizer'],
+    status: ['active', 'inactive'],
+    event_status: ['scheduled', 'cancelled', 'completed'],
+    payment_type: ['credit_card', 'debit_card', 'paypal', 'other'],
+    payment_status: ['paid', 'pending', 'failed'],
+    priority: ['high', 'medium', 'low'],
+  };
 
   const validateInput = (columnName, value) => {
-    // Check if the field should be an integer
     if (integerFields.includes(columnName) && !/^\d*$/.test(value)) {
       return `${columnName.replace(/_/g, " ")} must be an integer.`;
     }
-
-    // Check if the field should be numeric (integer or float)
     if (numericFields.includes(columnName) && isNaN(value)) {
       return `${columnName.replace(/_/g, " ")} must be a numeric value.`;
     }
-
     return "";
   };
 
@@ -47,7 +45,6 @@ const AddForm = ({ tableData, onAdd }) => {
   };
 
   const handleAdd = () => {
-    // Check for errors before adding data
     const formErrors = Object.keys(formData).reduce((acc, key) => {
       const error = validateInput(key, formData[key]);
       if (error) acc[key] = error;
@@ -62,6 +59,32 @@ const AddForm = ({ tableData, onAdd }) => {
     }
   };
 
+  const renderInputField = (column) => {
+    if (enumFields[column]) {
+      return (
+        <select
+          id={column}
+          name={column}
+          value={formData[column] || ""}
+          onChange={(e) => handleInputChange(column, e.target.value)}
+        >
+          {enumFields[column].map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
+      );
+    }
+    return (
+      <input
+        type={column.toLowerCase().includes("date") ? "date" : "text"}
+        id={column}
+        name={column}
+        value={formData[column] || ""}
+        onChange={(e) => handleInputChange(column, e.target.value)}
+      />
+    );
+  };
+
   return (
     <form>
       {tableData.map(
@@ -71,18 +94,19 @@ const AddForm = ({ tableData, onAdd }) => {
               <label htmlFor={column}>
                 {column.replace(/_/g, " ")}:
               </label>
-              <input
-                type={column.toLowerCase().includes("date") ? "date" : "text"}
-                id={column}
-                name={column}
-                value={formData[column] || ""}
-                onChange={(e) => handleInputChange(column, e.target.value)}
-              />
+              {renderInputField(column)}
               {errors[column] && <p style={{ color: 'red' }}>{errors[column]}</p>}
             </div>
           )
       )}
-      <button type="button" onClick={handleAdd}>
+      {console.log(Object.keys(formData).length,tableData.length)}
+      <button 
+  className={`button ${Object.values(errors).some(error => error !== "") ||  (Object.keys(formData).length!==tableData.length && Object.values(formData).some(formData => formData !== "")) ? 'button disabled' : 'button'}`}
+  type="button" 
+  onClick={handleAdd} 
+  disabled={Object.values(errors).some(error => error !== "") || (Object.keys(formData).length!==tableData.length && Object.values(formData).some(formData => formData !== ""))}
+>
+
         Add Data
       </button>
     </form>
