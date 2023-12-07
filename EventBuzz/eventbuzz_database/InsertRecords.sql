@@ -240,7 +240,7 @@ VALUES
 -- DELETE FROM `EventBuzz`.Tickets;
 -- DELETE FROM `EventBuzz`.Reviews;
 -- DELETE FROM `EventBuzz`.Orders;
--- Then truncate parent tables
+-- -- Then truncate parent tables
 -- DELETE FROM `EventBuzz`.Users;
 -- DELETE FROM `EventBuzz`.Events;
 -- DELETE FROM `EventBuzz`.EventCategories;
@@ -248,6 +248,8 @@ VALUES
 -- DELETE FROM `EventBuzz`.Sponsors;
 -- DELETE FROM `EventBuzz`.Organisers;
 -- DELETE FROM `EventBuzz`.Notifications;
+-- DELETE FROM EventBuzzAudit.ErrorLog;
+-- DELETE FROM EventBuzzAudit.UserLog;
 
 -- Drop all tables
 
@@ -273,5 +275,7 @@ VALUES
 -- select* FROM `Sponsors` where sponsor_name = 'Artistic Minds';
 
 -- update `EventsFundedBySponsors` SET sponsorship_amount = 100 WHERE sponsor_name = 'Artistic Minds';
+-- INSERT INTO EventsFundedBySponsors (event_name, sponsor_name, sponsorship_amount, sponsorship_date)
+-- VALUES ('Educational Workshop Series', 'Artistic Minds', 6000.00, '2023-07-20')
 
 -- 11500 - Original Value

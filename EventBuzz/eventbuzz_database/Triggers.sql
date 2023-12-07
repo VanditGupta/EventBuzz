@@ -109,3 +109,4 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- show TRIGGERS;
