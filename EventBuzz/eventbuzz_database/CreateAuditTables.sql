@@ -1,11 +1,10 @@
--- CreateAuditTables.sql creates the audit tables in the EventBuzzAuditTables Schema
-CREATE DATABASE IF NOT EXISTS EventBuzzAuditTables;
+-- CreateAuditTables.sql creates the audit tables in the EventBuzz Schema
 
--- DROP DATABASE IF EXISTS EventBuzzAuditTables;
-USE EventBuzzAuditTables;
+-- DROP DATABASE IF EXISTS EventBuzz;
+USE EventBuzz;
 
 -- Create the errorlog table
--- DROP TABLE IF EXISTS EventBuzzAuditTables.ErrorLog;
+-- DROP TABLE IF EXISTS EventBuzz.ErrorLog;
 CREATE TABLE IF NOT EXISTS ErrorLog (
     error_id INT AUTO_INCREMENT PRIMARY KEY,
     error_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS ErrorLog (
     additional_info TEXT              -- Any additional information
 );
 
--- DROP TABLE IF EXISTS EventBuzzAuditTables.UserLog;
+-- DROP TABLE IF EXISTS EventBuzz.UserLog;
 CREATE TABLE IF NOT EXISTS UserLog (
     log_id INT AUTO_INCREMENT PRIMARY KEY,
     general_id VARCHAR(255),              -- General ID for storing primary key from various tables
