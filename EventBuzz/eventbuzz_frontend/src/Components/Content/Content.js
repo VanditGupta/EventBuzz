@@ -190,6 +190,8 @@ const Content = ({ activeTable }) => {
     return primaryKeysMap[tableName] || [];
   };
 
+  const isUserLogTable = activeTable === "UserLog" || activeTable === "ErrorLog";
+  
   return (
     <div className="right-content">
       {error && <div className="error-message">{error}</div>}
@@ -224,11 +226,13 @@ const Content = ({ activeTable }) => {
             </tbody>
           </table>
 
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <button onClick={() => setFormType("add")}>Add</button>
-            <button onClick={() => setFormType("delete")}>Delete</button>
-            <button onClick={() => setFormType("update")}>Update</button>
-          </div>
+          {!isUserLogTable && ( // Conditional rendering based on activeTable
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button onClick={() => setFormType("add")}>Add</button>
+              <button onClick={() => setFormType("delete")}>Delete</button>
+              <button onClick={() => setFormType("update")}>Update</button>
+            </div>
+          )}
 
           {formType === "add" && (
             <AddForm

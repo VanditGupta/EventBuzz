@@ -145,6 +145,25 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- Stored Procedure to get values from `UserLog` table
+
+DELIMITER $$
+CREATE PROCEDURE IF NOT EXISTS GetUserLog()
+BEGIN
+    SELECT * FROM UserLog;
+END $$
+DELIMITER ;
+
+-- Stored Procedure to get values from `ErrorLog` table
+
+DELIMITER $$
+CREATE PROCEDURE IF NOT EXISTS GetErrorLog()
+BEGIN
+    SELECT * FROM ErrorLog;
+END $$
+DELIMITER ;
+
+
 
 -- Create Stored Procedures for inserting data into tables present in the `EventBuzz` database
 

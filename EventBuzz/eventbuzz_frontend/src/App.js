@@ -1,6 +1,6 @@
 // App.js
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Content from "./Components/Content/Content";
@@ -20,6 +20,8 @@ const tables = [
   "UsersRegisterForEvents",
   "EventsFundedBySponsors",
   "EventsOrganisedByOrganisers",
+  "UserLog",
+  "ErrorLog"
 ];
 
 const App = () => {

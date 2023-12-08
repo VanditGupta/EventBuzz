@@ -711,6 +711,41 @@ app.get("/getEventsOrganisedByOrganisers", (req, res) => {
 }
 );
 
+// Route for calling the GetUserLog() using stored procedure
+
+app.get("/getUserLog", (req, res) => {
+  connection.query(
+      'CALL GetUserLog()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetUserLog:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+// Route for calling the GetErrorLog() using stored procedure
+
+app.get("/getErrorLog", (req, res) => {
+  connection.query(
+      'CALL GetErrorLog()',
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure GetErrorLog:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+}
+);
+
+
 // Route for calling the InsertUser() using stored procedure
 
 app.post('/insertIntoUsersV2', (req, res) => {
