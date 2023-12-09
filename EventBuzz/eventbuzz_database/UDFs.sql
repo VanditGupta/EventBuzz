@@ -63,6 +63,10 @@ BEGIN
     RETURN totalAmount;
 END;
 
+-- Call the CalculateTotalAmount function
+
+-- select CalculateTotalAmount(1);
+
 
 -- Call the CalculateAge function
 
@@ -100,6 +104,8 @@ BEGIN
 
     RETURN numberOfEventsBooked;
 END;
+
+-- SELECT * FROM UsersRegisterForEvents;
 
 -- Call the CalculateNumberOfEventsBooked function
 

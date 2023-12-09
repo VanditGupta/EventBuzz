@@ -745,6 +745,67 @@ app.get("/getErrorLog", (req, res) => {
 }
 );
 
+// Route for calling the CalculateAge() function by passing the birthdate. Create a post request
+
+app.post("/calculateAge", (req, res) => {
+  const { birthdate } = req.body;
+  connection.query(
+      'SELECT CalculateAge(?) AS age',
+      [birthdate],
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure CalculateAge:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+});
+
+// Route for calling the CalculateTotalAmount() function by passing the userid. Create a post request
+
+// app.post("/calculateTotalAmount", (req, res) => {
+//   const { user_id } = req.body;
+//   connection.query(
+//       'SELECT CalculateTotalAmount(?) AS total_amount',
+//       [user_id],
+//       (err, results) => {
+//           if (err) {
+//               console.error('Error executing stored procedure CalculateTotalAmount:', err.message);
+//               res.status(500).json({ error: err.message });
+//               return;
+//           }
+//           res.json(results[0]);
+//       }
+//   );
+// });
+
+// Route for calling the CalculateNumberOfEventsBooked(userId INT) function by passing the userid. Create a post request
+
+app.post("/calculateNumberOfEventsBooked", (req, res) => {
+  const { user_id } = req.body;
+  connection.query(
+      'SELECT CalculateNumberOfEventsBooked(?) AS number_of_events_booked',
+      [user_id],
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure CalculateNumberOfEventsBooked:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+});
+
+
+
+
+
+
+
+
 
 // Route for calling the InsertUser() using stored procedure
 

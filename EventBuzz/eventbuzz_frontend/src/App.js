@@ -21,7 +21,8 @@ const tables = [
   "EventsFundedBySponsors",
   "EventsOrganisedByOrganisers",
   "UserLog",
-  "ErrorLog"
+  "ErrorLog",
+  "Functions"
 ];
 
 const App = () => {

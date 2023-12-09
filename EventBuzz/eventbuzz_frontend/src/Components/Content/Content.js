@@ -4,15 +4,20 @@ import "./Content.css";
 import AddForm from "../Forms/AddForm";
 import DeleteForm from "../Forms/DeleteForm";
 import UpdateForm from "../Forms/UpdateForm";
+import CalculateAgeForm from "../Forms/CalculateAgeForm";
+import CalculateNoOfEventsBooked from "../Forms/CalculateNoOfEventsBooked";
 
 const Content = ({ activeTable }) => {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [formType, setFormType] = useState(null);
   const [error, setError] = useState(null);
+  const [calculatedAge, setCalculatedAge] = useState(null);
 
   useEffect(() => {
     const fetchTableData = async () => {
+      if (activeTable != "Functions") {
+      
       try {
         setLoading(true);
         const response = await fetch(
@@ -36,6 +41,7 @@ const Content = ({ activeTable }) => {
         setLoading(false);
       }
     };
+  }
     setFormType(null);
     fetchTableData();
   }, [activeTable]);
@@ -199,7 +205,7 @@ const Content = ({ activeTable }) => {
       <h2>{activeTable.replace("_", " ")} Table Data</h2>
       {loading ? (
         <p>Loading...</p>
-      ) : (
+      ) : activeTable !== "Functions" ? (
         <>
           <table border="1">
             <thead>
@@ -257,6 +263,11 @@ const Content = ({ activeTable }) => {
             />
           )}
         </>
+      ) : (
+        <>
+      <CalculateAgeForm />
+      <CalculateNoOfEventsBooked />
+      </>
       )}
     </div>
   );
