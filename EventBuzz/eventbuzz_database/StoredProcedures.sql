@@ -1,6 +1,6 @@
--- StoredProcedures.sql create stored procedures for the EventBuzz Schema
+-- StoredProcedures.sql create stored procedures for the eventbuzz Schema
 
-USE EventBuzz;
+USE eventbuzz;
 DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS GenerateEventSummary(eventName VARCHAR(255))
 BEGIN
@@ -31,7 +31,7 @@ DELIMITER ;
 -- CALL GenerateEventSummary('Spring Music Fest');
 
 
--- Create Stored Procedures for getting data from tables present in the `EventBuzz` database
+-- Create Stored Procedures for getting data from tables present in the `eventbuzz` database
 
 -- Stored procedure to get values from `Users` table
 DELIMITER $$
@@ -165,7 +165,7 @@ DELIMITER ;
 
 
 
--- Create Stored Procedures for inserting data into tables present in the `EventBuzz` database
+-- Create Stored Procedures for inserting data into tables present in the `eventbuzz` database
 
 -- Stored procedure to insert values into `Users` table
 
@@ -586,7 +586,7 @@ END $$
 DELIMITER ;
 
 
--- Create Stored Procedures for updating data in tables present in the `EventBuzz` database
+-- Create Stored Procedures for updating data in tables present in the `eventbuzz` database
 
 -- Stored procedure to update values in `Users` table
 
@@ -899,7 +899,7 @@ END $$
 DELIMITER ;
 
 
--- Create Stored Procedures for deleting data from tables present in the `EventBuzz` database
+-- Create Stored Procedures for deleting data from tables present in the `eventbuzz` database
 
 -- Stored procedure to delete values from `Users` table
 

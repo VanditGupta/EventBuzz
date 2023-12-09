@@ -1,7 +1,7 @@
--- UDFs.sql create the user-defined functions for the EventBuzz Schema
+-- UDFs.sql create the user-defined functions for the eventbuzz Schema
 
 -- Function to calculate the age of a user based on their date of birth.
-USE EventBuzz;
+USE eventbuzz;
 
 DROP FUNCTION IF EXISTS CalculateAge;
 CREATE FUNCTION IF NOT EXISTS CalculateAge(birthDate DATE) 

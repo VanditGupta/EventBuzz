@@ -1,6 +1,6 @@
--- Indexes.sql create the indexes for the EventBuzz Schema
+-- Indexes.sql create the indexes for the eventbuzz Schema
 
-USE EventBuzz;
+USE eventbuzz;
 
 -- Indexes for Users table
 CREATE INDEX idx_users_username ON Users(username);

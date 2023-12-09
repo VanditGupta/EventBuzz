@@ -1,4 +1,4 @@
-USE EventBuzz;
+USE eventbuzz;
 
 -- INSERT INTO Users (username, email, password, first_name, last_name, date_of_birth, sex, contact_phone, street_no, street_name, unit_no, city, state, zip_code, country, profile_picture_url, role, status)
 -- VALUES 
@@ -227,51 +227,51 @@ VALUES
 -- SELECT * FROM UsersRegisterForEvents;
 -- SELECT * FROM EventsFundedBySponsors;
 -- SELECT * FROM EventsOrganisedByOrganisers;
--- select * from EventBuzzAuditTables.ErrorLog;
--- select * from EventBuzzAuditTables.UserLog;
+-- select * from eventbuzzAuditTables.ErrorLog;
+-- select * from eventbuzzAuditTables.UserLog;
 
 
 -- Truncate child tables first
 
--- DELETE FROM `EventBuzz`.NotificationsSendToUsers;
--- DELETE FROM `EventBuzz`.UsersRegisterForEvents;
--- DELETE FROM `EventBuzz`.EventsFundedBySponsors;
--- DELETE FROM `EventBuzz`.EventsOrganisedByOrganisers;
--- DELETE FROM `EventBuzz`.Tickets;
--- DELETE FROM `EventBuzz`.Reviews;
--- DELETE FROM `EventBuzz`.Orders;
+-- DELETE FROM `eventbuzz`.NotificationsSendToUsers;
+-- DELETE FROM `eventbuzz`.UsersRegisterForEvents;
+-- DELETE FROM `eventbuzz`.EventsFundedBySponsors;
+-- DELETE FROM `eventbuzz`.EventsOrganisedByOrganisers;
+-- DELETE FROM `eventbuzz`.Tickets;
+-- DELETE FROM `eventbuzz`.Reviews;
+-- DELETE FROM `eventbuzz`.Orders;
 
 --  Then truncate parent tables
 
--- DELETE FROM `EventBuzz`.Users;
--- DELETE FROM `EventBuzz`.Events;
--- DELETE FROM `EventBuzz`.EventCategories;
--- DELETE FROM `EventBuzz`.Venues;
--- DELETE FROM `EventBuzz`.Sponsors;
--- DELETE FROM `EventBuzz`.Organisers;
--- DELETE FROM `EventBuzz`.Notifications;
--- DELETE FROM `EventBuzzAuditTables`.ErrorLog;
--- DELETE FROM `EventBuzzAuditTables`.UserLog;
+-- DELETE FROM `eventbuzz`.Users;
+-- DELETE FROM `eventbuzz`.Events;
+-- DELETE FROM `eventbuzz`.EventCategories;
+-- DELETE FROM `eventbuzz`.Venues;
+-- DELETE FROM `eventbuzz`.Sponsors;
+-- DELETE FROM `eventbuzz`.Organisers;
+-- DELETE FROM `eventbuzz`.Notifications;
+-- DELETE FROM `eventbuzzAuditTables`.ErrorLog;
+-- DELETE FROM `eventbuzzAuditTables`.UserLog;
 
 -- Drop all tables
 
--- DROP TABLE IF EXISTS `EventBuzz`.NotificationsSendToUsers;
--- DROP TABLE IF EXISTS `EventBuzz`.UsersRegisterForEvents;
--- DROP TABLE IF EXISTS `EventBuzz`.EventsFundedBySponsors;
--- DROP TABLE IF EXISTS `EventBuzz`.EventsOrganisedByOrganisers;
+-- DROP TABLE IF EXISTS `eventbuzz`.NotificationsSendToUsers;
+-- DROP TABLE IF EXISTS `eventbuzz`.UsersRegisterForEvents;
+-- DROP TABLE IF EXISTS `eventbuzz`.EventsFundedBySponsors;
+-- DROP TABLE IF EXISTS `eventbuzz`.EventsOrganisedByOrganisers;
 
--- DROP TABLE IF EXISTS EventBuzzAuditTables.ErrorLog;
--- DROP TABLE IF EXISTS EventBuzzAuditTables.UserLog;
--- DROP TABLE IF EXISTS `EventBuzz`.Tickets;
--- DROP TABLE IF EXISTS `EventBuzz`.Reviews;
--- DROP TABLE IF EXISTS `EventBuzz`.Orders;
--- DROP TABLE IF EXISTS `EventBuzz`.Notifications;
--- DROP TABLE IF EXISTS `EventBuzz`.Users;
--- DROP TABLE IF EXISTS `EventBuzz`.Events;
--- DROP TABLE IF EXISTS `EventBuzz`.EventCategories;
--- DROP TABLE IF EXISTS `EventBuzz`.Venues;
--- DROP TABLE IF EXISTS `EventBuzz`.Sponsors;
--- DROP TABLE IF EXISTS `EventBuzz`.Organisers;
+-- DROP TABLE IF EXISTS eventbuzzAuditTables.ErrorLog;
+-- DROP TABLE IF EXISTS eventbuzzAuditTables.UserLog;
+-- DROP TABLE IF EXISTS `eventbuzz`.Tickets;
+-- DROP TABLE IF EXISTS `eventbuzz`.Reviews;
+-- DROP TABLE IF EXISTS `eventbuzz`.Orders;
+-- DROP TABLE IF EXISTS `eventbuzz`.Notifications;
+-- DROP TABLE IF EXISTS `eventbuzz`.Users;
+-- DROP TABLE IF EXISTS `eventbuzz`.Events;
+-- DROP TABLE IF EXISTS `eventbuzz`.EventCategories;
+-- DROP TABLE IF EXISTS `eventbuzz`.Venues;
+-- DROP TABLE IF EXISTS `eventbuzz`.Sponsors;
+-- DROP TABLE IF EXISTS `eventbuzz`.Organisers;
 
 -- select * from EventsFundedBySponsors where sponsor_name = 'Artistic Minds';
 -- select* FROM `Sponsors` where sponsor_name = 'Artistic Minds';
@@ -281,3 +281,10 @@ VALUES
 -- VALUES ('Educational Workshop Series', 'Artistic Minds', 6000.00, '2023-07-20')
 
 -- 11500 - Original Value
+
+-- INSERT INTO UsersRegisterForEvents (user_id, event_name, registration_date) VALUES 
+-- (1, 'Indie Film Nights', '2023-09-19'), 
+-- (2, 'Tech Expo 2023', '2023-06-02'),
+--  (3, 'Business Networking Event', '2023-08-16'), 
+--  (4, 'Health and Wellness Fair', '2023-09-02'),
+-- (5, 'Culinary Delights Festival', '2023-07-06');
