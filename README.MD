@@ -78,7 +78,7 @@ InsertRecords.sql - This file inserts 10 records each in all the base tables
 Youtube Link: [EventBuzz](https://youtu.be/kWbhKLEkx7o)
    
 ## Contributing
-We welcome contributions to the EventBuzz project. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+We welcome contributions to the EventBuzz project. Please read our [CONTRIBUTING.md](https://github.com/VanditGupta/EventBuzz/blob/vandit/Contributing.MD) for guidelines on how to contribute.
 
 ## License
 This project is licensed under the [GNU Affero General Public License.](https://www.gnu.org/licenses/agpl-3.0.html).
