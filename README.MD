@@ -1,69 +1,94 @@
-# EventBuzz Demo
+# EventBuzz
 
-Youtube Video link: https://youtu.be/kWbhKLEkx7o
+## Description
+EventBuzz is a comprehensive event management application designed to streamline the organization, planning, and attendance of various types of events. It provides an intuitive platform for event organizers, attendees, and sponsors to create, manage, and engage with events seamlessly.
 
-# EventBuzz Database Schema
+## Features
+- **CRUD Operations:** Complete control over creating, reading, updating, and deleting events.
+- **User-Friendly Interface:** Easy navigation and interaction for users.
+- **Event Organization:** Effortless creation and management of event details.
+- **Dynamic Data Presentation:** Utilizes derived attributes and real-time data updates.
+- **Robust Backend Logic:** Sophisticated stored procedures for efficient data handling.
+- **Automatic Data Updates:** Database triggers for real-time data integrity.
+- **Secure and Reliable:** Comprehensive error handling and data validation.
+- **User and Error Logs:** The system's user and error log tables are essential for tracking requests and maintaining operational integrity, enabling swift issue resolution and performance monitoring.
 
-This SQL script creates a database for an event management system named `EventBuzz`. The database consists of several tables that store information about users, events, venues, orders, tickets, reviews, sponsors, organizers, and notifications.
+## Technical Stack
+- **Backend:** Node.js with Express.js
+- **Frontend:** React.js
+- **Database:** MySQL
 
-## Tables
+## Installation
 
-### Users
+### Prerequisites
+- [Node.js](https://nodejs.org/)
+- [MySQL](https://dev.mysql.com/downloads/mysql/)
+- [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
-Stores information about the users of the system. Each user has a unique ID, username, email, and password. Additional information such as name, date of birth, sex, phone number, address, profile picture URL, role, status, and registration date are also stored.
 
-### EventCategories
+### Backend Setup
+1. Navigate to the backend directory using terminal:
+   ```bash
+   cd eventbuzz_backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Stores different categories of events. Each category has a name and a description.
+### Frontend Setup
+1. Navigate to the frontend directory using terminal:
+   ```bash
+   cd eventbuzz_frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Venues
+### Database Setup
+Run the provided SQL dump 
 
-Stores information about the venues where events are held. Each venue has a name, address, maximum capacity, and contact information.
+OR 
 
-### Events
+Run the SQL scripts provided in the eventbuzz_database folder in the following order:
+- CreateSchema.sql - This file creates the base tables
+- CreateAuditTables.sql - This file creates the log tables
+- Indexes.sql - This file creates indexes for the base tables and the log tables for improved performance
+- CreateViews.sql - This file creates the views on the base tables and the log tables.
+- StoredProcedures.sql - This file creates the Stored Procedures for CRUD operations on all table
+- Triggers.sql - This file creates the Triggers for UserLog and ErrorLog tables
+- UDFs.sql - This file creates the UDFs used in the project
+InsertRecords.sql - This file inserts 10 records each in all the base tables
 
-Stores information about the events. Each event has a name, description, date, time, status, image URL, category, and venue.
 
-### Orders
+## Running the Application
+1. Start the backend server:
+   ```bash
+   cd eventbuzz_backend
+   npm start
+   ```
+2. Start the frontend application:
+   ```bash
+   cd eventbuzz_frontend/src
+   npm start
+   ```
 
-Stores information about the orders made by users. Each order has an ID, user ID, total amount, date, payment type, payment status, and event name.
+## EventBuzz demo
+Youtube Link: [EventBuzz](https://youtu.be/kWbhKLEkx7o)
+   
+## Contributing
+We welcome contributions to the EventBuzz project. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
 
-### Tickets
+## License
+This project is licensed under the [GNU Affero General Public License.](https://www.gnu.org/licenses/agpl-3.0.html).
 
-Stores information about the tickets for events. Each ticket has an ID, order ID, price, quantity, start and end sale date, and event name.
+## Acknowledgements
+- Our team: Vandit Gupta, Gargi Umrajkar, Chaitanya Kharche
+- All contributors and supporters of the EventBuzz project.
 
-### Reviews
+## Contact
+For any inquiries or contributions, please contact us at [gupta.vandi@northeastern.edu](mailto:gupta.vandi@northeastern.edu).
 
-Stores reviews made by users for events. Each review has a user ID, event name, rating, comment, and date.
-
-### Sponsors
-
-Stores information about the sponsors. Each sponsor has a name, description, website URL, logo URL, contact information, and total sponsorship amount.
-
-### Organisers
-
-Stores information about the organisers. Each organiser has a name, description, logo URL, and contact information.
-
-### Notifications
-
-Stores information about the notifications sent to users. Each notification has an ID, event name, text, and date.
-
-### Notifications_SendTo_Users
-
-Stores information about which notifications were sent to which users.
-
-### Users_RegisterFor_Events
-
-Stores information about which users registered for which events.
-
-### Events_FundedBy_Sponsors
-
-Stores information about which events are funded by which sponsors and the amount of sponsorship.
-
-### Events_OrganisedBy_Organisers
-
-Stores information about which events are organised by which organisers and their roles.
-
-## Note
-
-The script first checks if the `EventBuzz` database exists and creates it if it doesn't. It then uses the `EventBuzz` database and creates the tables. If any of the tables already exist, it doesn't create them.
+## Project Status
+This project is currently in active development. For the latest updates, please check our [GitHub repository](https://github.com/VanditGupta/EventBuzz).
