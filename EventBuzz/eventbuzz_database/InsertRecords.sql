@@ -280,11 +280,10 @@ VALUES
 -- INSERT INTO EventsFundedBySponsors (event_name, sponsor_name, sponsorship_amount, sponsorship_date)
 -- VALUES ('Educational Workshop Series', 'Artistic Minds', 6000.00, '2023-07-20')
 
--- 11500 - Original Value
 
--- INSERT INTO UsersRegisterForEvents (user_id, event_name, registration_date) VALUES 
--- (1, 'Indie Film Nights', '2023-09-19'), 
--- (2, 'Tech Expo 2023', '2023-06-02'),
---  (3, 'Business Networking Event', '2023-08-16'), 
---  (4, 'Health and Wellness Fair', '2023-09-02'),
--- (5, 'Culinary Delights Festival', '2023-07-06');
+INSERT INTO UsersRegisterForEvents (user_id, event_name, registration_date) VALUES 
+(1, 'Indie Film Nights', '2023-09-19'), 
+(2, 'Tech Expo 2023', '2023-06-02'),
+ (3, 'Business Networking Event', '2023-08-16'), 
+ (4, 'Health and Wellness Fair', '2023-09-02'),
+(5, 'Culinary Delights Festival', '2023-07-06');
