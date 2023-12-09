@@ -33,3 +33,9 @@ CREATE INDEX idx_users_registerfor_events ON UsersRegisterForEvents(user_id, eve
 CREATE INDEX idx_events_fundedby_sponsors ON EventsFundedBySponsors(event_name, sponsor_name);
 CREATE INDEX idx_events_organisedby_organisers ON EventsOrganisedByOrganisers(event_name, organiser_name);
 
+-- Indexes for ErrorLog and UserLog tables
+
+CREATE INDEX idx_errorlog_timestamp ON ErrorLog(error_timestamp);
+CREATE INDEX idx_userlog_timestamp ON UserLog(action_timestamp);
+
+
