@@ -41,7 +41,7 @@ const CalculateNoOfEventsBooked = () => {
         <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} placeholder="Enter User ID" />
       </label>
       <button type="submit">Calculate Number of Events Booked</button>
-      {eventsBooked != -1? <p>Number of events booked are {eventsBooked}</p> :  null}
+      {eventsBooked !== -1? <p>Number of events booked are {eventsBooked}</p> :  null}
     </form>
   );
 };

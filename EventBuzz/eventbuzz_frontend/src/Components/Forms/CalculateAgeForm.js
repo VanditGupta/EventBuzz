@@ -41,7 +41,7 @@ const CalculateAgeForm = () => {
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Enter Dates" />
       </label>
       <button type="submit">Calculate Age</button>
-      {age != -1? <p>The age is {age} years old</p> :  null}
+      {age !== -1? <p>The age is {age} years old</p> :  null}
     </form>
   );
 };

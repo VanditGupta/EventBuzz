@@ -40,7 +40,7 @@ const CalculateAmountSponsor = () => {
         <input type="text" value={sponsorName} onChange={(e) => setSponsorName(e.target.value)} placeholder="Enter Sponsor name" />
       </label>
       <button type="submit">Calculate Total Amount Spent</button>
-      {totalAmount != -1? <p>Total amount spent: ${totalAmount}</p> :  null}
+      {totalAmount !== -1? <p>Total amount spent: ${totalAmount}</p> :  null}
     </form>
   );
 };

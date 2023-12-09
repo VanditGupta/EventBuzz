@@ -13,11 +13,10 @@ const Content = ({ activeTable }) => {
   const [loading, setLoading] = useState(false);
   const [formType, setFormType] = useState(null);
   const [error, setError] = useState(null);
-  const [calculatedAge, setCalculatedAge] = useState(null);
 
   useEffect(() => {
     const fetchTableData = async () => {
-      if (activeTable != "Functions") {
+      if (activeTable !== "Functions") {
       
       try {
         setLoading(true);
