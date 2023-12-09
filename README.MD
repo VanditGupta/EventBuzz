@@ -1,3 +1,7 @@
+# EventBuzz Demo
+
+Youtube Video link: https://youtu.be/kWbhKLEkx7o
+
 # EventBuzz Database Schema
 
 This SQL script creates a database for an event management system named `EventBuzz`. The database consists of several tables that store information about users, events, venues, orders, tickets, reviews, sponsors, organizers, and notifications.
