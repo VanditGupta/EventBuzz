@@ -139,6 +139,8 @@ END;
 
 -- select CalculateTotalAmountSponsorSpends('BizNetwork');
 
+-- SELECT CalculateTotalAmountSponsorSpends('EduMinds');
+
 
 -- Function to calculate the number of organizers for an event
 

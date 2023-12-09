@@ -6,6 +6,7 @@ import DeleteForm from "../Forms/DeleteForm";
 import UpdateForm from "../Forms/UpdateForm";
 import CalculateAgeForm from "../Forms/CalculateAgeForm";
 import CalculateNoOfEventsBooked from "../Forms/CalculateNoOfEventsBooked";
+import CalculateAmountSponsor from "../Forms/CalculateAmountSponsor";
 
 const Content = ({ activeTable }) => {
   const [tableData, setTableData] = useState([]);
@@ -267,6 +268,7 @@ const Content = ({ activeTable }) => {
         <>
       <CalculateAgeForm />
       <CalculateNoOfEventsBooked />
+      <CalculateAmountSponsor />
       </>
       )}
     </div>

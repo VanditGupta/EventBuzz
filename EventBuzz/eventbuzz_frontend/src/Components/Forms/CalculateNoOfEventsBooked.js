@@ -35,7 +35,7 @@ const CalculateNoOfEventsBooked = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <h1>Calculate Number of Events a User registers</h1>
+        <h1> Number of Events a User registers</h1>
       <label>
         UserID:
         <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} placeholder="Enter User ID" />

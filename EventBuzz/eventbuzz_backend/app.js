@@ -745,7 +745,7 @@ app.get("/getErrorLog", (req, res) => {
 }
 );
 
-// Route for calling the CalculateAge() function by passing the birthdate. Create a post request
+// Route for calling the CalculateAge() function by passing the birthdate. 
 
 app.post("/calculateAge", (req, res) => {
   const { birthdate } = req.body;
@@ -763,7 +763,7 @@ app.post("/calculateAge", (req, res) => {
   );
 });
 
-// Route for calling the CalculateTotalAmount() function by passing the userid. Create a post request
+// Route for calling the CalculateTotalAmount() function by passing the userid.
 
 // app.post("/calculateTotalAmount", (req, res) => {
 //   const { user_id } = req.body;
@@ -781,7 +781,7 @@ app.post("/calculateAge", (req, res) => {
 //   );
 // });
 
-// Route for calling the CalculateNumberOfEventsBooked(userId INT) function by passing the userid. Create a post request
+// Route for calling the CalculateNumberOfEventsBooked(userId INT) function by passing the userid.
 
 app.post("/calculateNumberOfEventsBooked", (req, res) => {
   const { user_id } = req.body;
@@ -799,13 +799,23 @@ app.post("/calculateNumberOfEventsBooked", (req, res) => {
   );
 });
 
+// Route for calling the CalculateTotalAmountSponsorSpends(sponsorName VARCHAR(255)) function by passing the sponsorName.
 
-
-
-
-
-
-
+app.post("/calculateTotalAmountSponsorSpends", (req, res) => {
+  const { sponsor_name } = req.body;
+  connection.query(
+      'SELECT CalculateTotalAmountSponsorSpends(?) AS total_amount_sponsor_spends',
+      [sponsor_name],
+      (err, results) => {
+          if (err) {
+              console.error('Error executing stored procedure CalculateTotalAmountSponsorSpends:', err.message);
+              res.status(500).json({ error: err.message });
+              return;
+          }
+          res.json(results[0]);
+      }
+  );
+});
 
 // Route for calling the InsertUser() using stored procedure
 

@@ -35,7 +35,7 @@ const CalculateAgeForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <h1>Calculate Age Function</h1>
+        <h1>User Age</h1>
       <label>
         Date:
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Enter Dates" />
