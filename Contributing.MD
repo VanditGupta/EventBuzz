@@ -57,7 +57,7 @@ We strive to maintain a welcoming and inclusive community. We expect all contrib
 
 ## Questions or Need Help?
 
-If you have any questions or need help with contributing, please feel free to reach out to us at [gupta.vandi@northeastern.edu](mailto:gupta.vandi@northeastern.edu).
+If you have any questions or need help with contributing, please feel free to reach out to us at [gupta.vandi@northeastern.edu](mailto:gupta.vandi@northeastern.edu) or [umrajkar.g@northeastern.edu](mailto:umrajkar.g@northeastern.edu).
 
 Thank you for contributing to EventBuzz!
 
